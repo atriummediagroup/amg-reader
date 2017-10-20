@@ -74,3 +74,35 @@ This is what a blog post contains in response to this query
 	}
 	
 **Note** `author` is an id relating to the author that can be retrieved with a GET request to `http://amglaurier.com/users/AUTHOR_ID`
+
+## Front-End Design
+
+### Colors
+
+These are the scss colors we will use:
+
+$colors: (
+	red: #d9534f
+	off-black: #444
+	white: #fff
+	black: #333
+)
+
+### Fonts
+
+These are the fonts first for headings second for body
+
+@import "roboto";
+@import "sans-serif";
+
+### Icons
+
+Various icons for display and navigation
+
+arrow-round-back
+menu
+home
+paper (blog)
+book (magazine)
+images (photography)
+
