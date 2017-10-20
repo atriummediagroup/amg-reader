@@ -1,2 +1,7 @@
 .gitignore
 .idea/
+
+.DS_Store
+amg-reader/.sourcemaps/
+amg-reader/node_modules/
+amg-reader/www/
