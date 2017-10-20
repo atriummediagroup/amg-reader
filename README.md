@@ -21,7 +21,7 @@ Gets all the blog posts in order of newest to oldest
 
 **Note 2** Can take multiple words, split up like this `title=most%20useful`
 
-####Example
+#### Example
 
 **GET** `http://amglaurier.com/api/posts/?pagesize=10&category=education&title=business%20electives`
 
