@@ -5,6 +5,12 @@ import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
 import {MyApp} from './app.component';
 import {HomePage} from '../pages/home/home';
 import {ListPage} from '../pages/list/list';
+import {BlogDetailPage} from '../pages/blog-detail/blog-detail';
+import {BlogListPage} from '../pages/blog-list/blog-list';
+import {CategoryListPage} from '../pages/category-list/category-list';
+import {MagazineListPage} from '../pages/magazine-list/magazine-list';
+import {PhotoblogDetailPage} from '../pages/photoblog-detail/photoblog-detail';
+import {PhotoblogListPage} from '../pages/photoblog-list/photoblog-list';
 
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
@@ -16,7 +22,13 @@ import {HTTP} from '@ionic-native/http';
     declarations: [
         MyApp,
         HomePage,
-        ListPage
+        ListPage,
+        BlogDetailPage,
+        BlogListPage,
+        CategoryListPage,
+        MagazineListPage,
+        PhotoblogDetailPage,
+        PhotoblogListPage,
     ],
     imports: [
         BrowserModule,
@@ -27,7 +39,13 @@ import {HTTP} from '@ionic-native/http';
     entryComponents: [
         MyApp,
         HomePage,
-        ListPage
+        ListPage,
+        BlogDetailPage,
+        BlogListPage,
+        CategoryListPage,
+        MagazineListPage,
+        PhotoblogDetailPage,
+        PhotoblogListPage,
     ],
     providers: [
         HTTP,
