@@ -6,13 +6,30 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>blog-list</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Latest Blogs</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+    <div class="postPreviewContainer" *ngFor="let post of model.posts">
+        <ion-card (click)="viewPost(post)">
+            <div class="content image">
+                <img src="{{post.image_url}}" alt="" style="width: 100%">
+            </div>
+
+            <div class="content info">
+                <h2>{{post.title}}</h2>
+                <p>{{post.category_title}}</p>
+                <p>{{post.created | date}}</p>
+            </div>
+        </ion-card>
+    </div>
 
 </ion-content>

@@ -1,3 +1,27 @@
 page-blog-list {
 
+  .postPreviewContainer {
+
+    padding: 8px 0;
+    border-bottom: 0.55px solid rgba(139, 139, 139, 0.46);
+
+    .card {
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+
+      .content {
+        float: left;
+        padding: 11px;
+      }
+
+      .content.image {
+        width: 35%;
+      }
+
+      .content.info {
+        width: 65%
+      }
+    }
+  }
 }

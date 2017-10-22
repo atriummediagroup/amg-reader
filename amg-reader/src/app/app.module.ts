@@ -17,6 +17,7 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 import {PipesModule} from '../pipes/pipes.module';
 import {HttpProvider} from '../providers/http/http';
 import {HTTP} from '@ionic-native/http';
+import {MarkdownModule} from 'angular2-markdown';
 
 @NgModule({
     declarations: [
@@ -33,6 +34,7 @@ import {HTTP} from '@ionic-native/http';
     imports: [
         BrowserModule,
         IonicModule.forRoot(MyApp),
+        MarkdownModule.forRoot(),
         PipesModule
     ],
     bootstrap: [IonicApp],

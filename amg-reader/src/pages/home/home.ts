@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {NavController} from 'ionic-angular';
 import {HttpProvider, Requests} from '../../providers/http/http';
+import {BlogListPage} from '../blog-list/blog-list';
 
 @Component({
     selector: 'page-home',
@@ -8,12 +9,8 @@ import {HttpProvider, Requests} from '../../providers/http/http';
 })
 export class HomePage {
 
-    constructor(public navCtrl: NavController, private http: HttpProvider) {
-        this.http.get(Requests.posts(10)).then(value => {
-            console.log(JSON.parse(value.data));
-        }).catch(error => {
-            console.log(error);
-        })
+    constructor(public navCtrl: NavController) {
+        this.navCtrl.setRoot(BlogListPage);
     }
 
 }

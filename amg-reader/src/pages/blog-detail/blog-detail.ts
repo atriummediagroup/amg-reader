@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component} from '@angular/core';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {BlogPost} from '../../providers/http/http';
 
 /**
  * Generated class for the BlogDetailPage page.
@@ -10,16 +11,19 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-blog-detail',
-  templateUrl: 'blog-detail.html',
+    selector: 'page-blog-detail',
+    templateUrl: 'blog-detail.html',
 })
 export class BlogDetailPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+    post: BlogPost;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad BlogDetailPage');
-  }
+    constructor(public navCtrl: NavController, public navParams: NavParams) {
+        this.post = navParams.get('post') as BlogPost;
+    }
+
+    ionViewDidLoad() {
+        console.log('ionViewDidLoad BlogDetailPage');
+    }
 
 }
