@@ -28,7 +28,7 @@ export class HttpProvider {
         return DEVELOPMENT ?
             new Promise((success, reject) => {
                 success({
-                    data: request.offlineData
+                    data: JSON.stringify(request.offlineData)
                 })
             }) : this.http.get(request.url, {}, {});
     }
@@ -38,7 +38,7 @@ export class HttpProvider {
 export const Requests = {
     categories: {
         url: 'http://amglaurier.com/categories/?pagesize=100',
-        offlineData: `{
+        offlineData: {
             "count": 12,
             "next": "http://amglaurier.com/categories/?page=2&pagesize=5",
             "previous": null,
@@ -64,12 +64,12 @@ export const Requests = {
                     "slug": "personal-finance"
                 }
             ]
-        }`
+        }
     },
     posts: function (pageSize) {
         return {
             url: `http://amglaurier.com/api/posts/?pagesize=${pageSize || 20}`,
-            offlineData: `{
+            offlineData: {
                 "count": 170,
                 "next": "http://amglaurier.com/api/posts/?page=2&pagesize=3",
                 "previous": null,
@@ -111,7 +111,7 @@ export const Requests = {
                         "content": "<p>Sitting in your first lecture of the year is &ndash; to say the least &ndash; &nbsp;a bizarre experience, especially if you&rsquo;re a first year. The months of anticipation &ndash; positive, negative, or both &ndash; all peak within the first few minutes of taking your seat in that lecture hall. Whether you came here to learn or to drink like a fish and get on a first-name basis with every bouncer in the Kitchener-Waterloo area, that first lecture sets the tone whether you like it or not.</p>\r\n\r\n<p>It seems callous to compare university and war, but both have been romanticized to a precarious degree; reality will put you on your ass and it&rsquo;s damn hard to avoid &ndash; you&rsquo;ll just have to experience it and take it as it comes.</p>\r\n\r\n<p>While some first-years move in with expectations that are startlingly realistic, the majority have rampant imaginations fueled by a cocktail of equal parts adrenaline, anxiety, and booze; needless to say, I fell into the latter category. Like I said though, all the nerves and expectations begin to subside during that first lecture, and you may be surprised to find that your experience bears little resemblance to <em>American Pie, 22 Jump Street, </em>and <em>Animal House. </em>You may find yourself just trying to stay afloat in this unfamiliar world, and that&rsquo;s fine &ndash; in fact it&rsquo;s as normal as it gets.</p>\r\n\r\n<p>David Foster Wallace gave a commencement speech at an American college in 2005, which included a parable that rings eerily true:</p>\r\n\r\n<p style=\"margin-left:.5in\">There are these two young fish swimming along, and they happen to meet an older fish swimming the other way, who nods at them and says, &lsquo;Morning, boys, how&#39;s the water?&rsquo; And the two young fish swim on for a bit, and then eventually one of them looks over at the other and goes, &lsquo;What the hell is water?&rsquo;</p>\r\n\r\n<p>Ignoring that we&rsquo;re quite inclined to believe that fish are not well versed in the English language, the story rings true; the plainest truths about our realities can be the most difficult to see. So maybe university isn&rsquo;t like <em>American Pie, </em>but it is reality &ndash; &ldquo;it is water.&rdquo; Who knows, maybe you&rsquo;ll like that reality even more.</p>"
                     }
                 ]
-            }`
+            }
         }
     }
 };
