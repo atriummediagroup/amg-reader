@@ -4,6 +4,74 @@ The official blog reader app for Atrium Media Group
 
 ## Api Endpoints
 
+### GET `/categories`
+Gets all the categories of blog posts
+
+##### Parmaters - Optional
+`pagesize=X` The number of posts given in the result (integer, defaults to 10)
+
+#### Example
+
+**GET** `http://amglaurier.com/categories?pagesize=100`
+
+**Returns**
+{
+    "count": 12,
+    "next": null,
+    "previous": null,
+    "results": [
+        {
+            "title": "School",
+            "slug": "education"
+        },
+        {
+            "title": "Opinions",
+            "slug": "opinions"
+        },
+        {
+            "title": "Operations",
+            "slug": "operations"
+        },
+        {
+            "title": "Marketing",
+            "slug": "marketing"
+        },
+        {
+            "title": "Life and Skills",
+            "slug": "personal-finance"
+        },
+        {
+            "title": "Laurier",
+            "slug": "bba-program"
+        },
+        {
+            "title": "Investment Finance",
+            "slug": "investment-finance"
+        },
+        {
+            "title": "Elections 2016",
+            "slug": "elections-2016"
+        },
+        {
+            "title": "Economics",
+            "slug": "economics"
+        },
+        {
+            "title": "Careers",
+            "slug": "careers"
+        },
+        {
+            "title": "Business",
+            "slug": "uncategorized"
+        },
+        {
+            "title": "Atrium Media Group",
+            "slug": "atrium-media-group"
+        }
+    ]
+}
+
+
 ### GET `/api/posts`
 
 Gets all the blog posts in order of newest to oldest
@@ -11,7 +79,7 @@ Gets all the blog posts in order of newest to oldest
 ##### Parmaters - Optional
 `pagesize=X` The number of posts given in the result (integer, defaults to 10)
 
-`cagegory=X` Takes the slug of a category (ie. `education`) and returns all the posts that are in that category. 
+`category=X` Takes the slug of a category (ie. `education`) and returns all the posts that are in that category. 
 
 **Note** Must be an exact match to the category slug, partial matches will return nothing.
 
