@@ -3,7 +3,8 @@ import 'rxjs/add/operator/map';
 import {HTTP, HTTPResponse} from '@ionic-native/http';
 
 // Uses the web version of HTTP rather than the cordova version (which doesnt work on web)
-const DEVELOPMENT = true;
+// const DEVELOPMENT = true;
+const DEVELOPMENT = false;
 /*
  Generated class for the HttpProvider provider.
 
@@ -29,7 +30,7 @@ export class HttpProvider {
             new Promise((success, reject) => {
                 success({
                     data: JSON.stringify(request.offlineData)
-                })
+                });
             }) : this.http.get(request.url, {}, {});
     }
 
