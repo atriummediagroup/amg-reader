@@ -17,29 +17,12 @@ export class CategoryListPage {
   categories:Array<JSON>;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public httpProvider: HttpProvider) {
-    
+    this.httpProvider.get(Requests.categories).then(value => {
+      // console.log(JSON.parse(value.data));
+      console.log(value.data.results);
+      this.categories = value.data.results;     
+  }).catch(error => {
+      console.log(error);
+  })
   }
-
- /*  */
-  printCategories(categories){
-    categories.forEach(element => {
-      console.log(element.title)
-    });
-  };
-  
-// If development = true
-  ionViewDidLoad() {
-    this.httpProvider.get(Requests.categories).then(value=>{this.printCategories(value.data.results);
-    this.categories=value.data.results});
-    
-  }
-
-  // // If development = false
-  // ionViewDidLoad() {
-  //   this.httpProvider.get(Requests.categories).then(value=>{;
-  //   this.categories=value.results});
-    
-  // }
-
-
   }

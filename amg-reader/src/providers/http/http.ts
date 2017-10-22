@@ -29,7 +29,7 @@ export class HttpProvider {
         return DEVELOPMENT ?
             new Promise((success, reject) => {
                 success({
-                    data: JSON.stringify(request.offlineData)
+                    data: request.offlineData
                 });
             }) : this.http.get(request.url, {}, {});
     }
