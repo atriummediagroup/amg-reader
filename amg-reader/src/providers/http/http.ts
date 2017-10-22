@@ -3,7 +3,8 @@ import 'rxjs/add/operator/map';
 import {HTTP, HTTPResponse} from '@ionic-native/http';
 
 // Uses the web version of HTTP rather than the cordova version (which doesnt work on web)
-const DEVELOPMENT = true;
+// const DEVELOPMENT = true;
+const DEVELOPMENT = false;
 /*
  Generated class for the HttpProvider provider.
 
@@ -24,12 +25,12 @@ export class HttpProvider {
 
     /* Example Usage: http.get(Requests.post).then(value => {}).error(error => {})*/
 
-    get(request): Promise<HTTPResponse> {
+    get(request): Promise<any> {
         return DEVELOPMENT ?
             new Promise((success, reject) => {
                 success({
                     data: request.offlineData
-                })
+                });
             }) : this.http.get(request.url, {}, {});
     }
 
@@ -38,7 +39,7 @@ export class HttpProvider {
 export const Requests = {
     categories: {
         url: 'http://amglaurier.com/categories/?pagesize=100',
-        offlineData: `{
+        offlineData: {
             "count": 12,
             "next": "http://amglaurier.com/categories/?page=2&pagesize=5",
             "previous": null,
@@ -64,7 +65,7 @@ export const Requests = {
                     "slug": "personal-finance"
                 }
             ]
-        }`
+        }
     },
     posts: function (pageSize) {
         return {
