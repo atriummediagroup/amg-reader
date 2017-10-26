@@ -75,6 +75,44 @@ This is what a blog post contains in response to this query
 	
 **Note** `author` is an id relating to the author that can be retrieved with a GET request to `http://amglaurier.com/users/AUTHOR_ID`
 
+## Using the `http.provider` to get `/api/posts`
+
+1. Add `import {HttpProvider, Requests} from '../../providers/http/http';
+` to the top of the file
+
+2. Add `private http: HttpProvider` to the constructor (ie.)
+    
+3. Call the `http.get` function using a request from the `Requests` constant
+
+Full Examples
+
+	import {HttpProvider, Requests} from '../../providers/http/http';
+	
+	
+	export class MyAwesomeClass {
+		constructor(private http: HttpProvider) {
+        }
+        
+        getPosts() {
+        	this.http.get(Requests.posts(10, [{key: 'category', value: 'education'}]))
+        }
+	}
+	
+	
+`Requests.posts` takes two values, an integer > 0 which represents the `pagesize` argument, and an array of objects with the format
+
+	{
+		key: String,
+		value: String
+	}
+	
+This takes any of the parameters above and applies them properly.
+
+**Note** For the title parameter, a `value` of `"my business"` will automatically be changed to `"my%20business"`
+	
+	
+	
+
 ## Front-End Design
 
 ### Colors

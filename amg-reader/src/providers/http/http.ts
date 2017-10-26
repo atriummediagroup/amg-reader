@@ -66,9 +66,13 @@ export const Requests = {
             ]
         }
     },
-    posts: function (pageSize) {
+    posts: function (pageSize, queries: Array<{key:string, value:any}>) {
+        let url = `http://amglaurier.com/api/posts/?pagesize=${pageSize || 20}`;
+        queries.forEach(query => {
+            url += `&${query.key}=${query.value.split(' ').join('%20')}`
+        });
         return {
-            url: `http://amglaurier.com/api/posts/?pagesize=${pageSize || 20}`,
+            url: url,
             offlineData: {
                 "count": 170,
                 "next": "http://amglaurier.com/api/posts/?page=2&pagesize=3",
