@@ -110,8 +110,43 @@ This takes any of the parameters above and applies them properly.
 
 **Note** For the title parameter, a `value` of `"my business"` will automatically be changed to `"my%20business"`
 	
-	
-	
+
+### GET `/api/issues`
+
+Gets all the magazine issues in order of newest to oldest
+
+##### Parmaters - Optional
+`pagesize=X` The number of posts given in the result (integer, defaults to 10)
+
+**Note** Must be an exact match to the issue's slug, partial matches will return nothing.
+
+`slug=X`  Takes a slug parameter and returns the link to the magazine's PDF
+
+#### Example
+
+**GET** `http://amglaurier.com/api/posts/?pagesize=10&category=education&title=business%20electives`
+
+**Returns**
+{
+    "count": 17,
+    "next": "http://amglaurier.com/api/issues/?page=2",
+    "previous": null,
+    "results": [
+        {
+            "title": "Fall 2017",
+            "image_url": "http://amglaurier.com/uploads/magazines/fall2017.png",
+            "pdf_url_link": "http://amglaurier.com/uploads/magazine_pdfs/fall2017.pdf",
+            "slug": "fall-2017"
+        },
+        {
+            "title": "Winter 2017",
+            "image_url": "http://amglaurier.com/uploads/magazines/winter2017.png",
+            "pdf_url_link": "http://amglaurier.com/uploads/magazine_pdfs/winter2017.pdf",
+            "slug": "winter-2017"
+        },
+
+
+
 
 ## Front-End Design
 
