@@ -5,14 +5,29 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>magazine-list</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Magazines</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
+  
+      <div class="magContainer" *ngFor="let magazine of magazines">
+          <ion-card (click)="viewMag(magazine)">
+              <div class="content info">
+                  <div class="title">{{magazine.title}}</div>
+              </div>
+  
+              <div class="content image">
+                  <img src="{{magazine.image_url}}" alt="" style="width: 100%">
+              </div>
+          </ion-card>
+      </div>
+  
+  </ion-content>
 
-</ion-content>
+<ion-content padding>

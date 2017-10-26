@@ -66,6 +66,22 @@ export const Requests = {
             ]
         }
     },
+
+    magazines: {
+        url: 'http://amglaurier.com/magazines/?pagesize=100',
+        offlineData: `{
+            "count": 3,
+            "next": "http://amglaurier.com/magazines/?page=2&pagesize=5",
+            "previous": null,
+            "results": [
+                {
+                    "title": "Fall 2017",
+                    "slug": "../magazine_pdfs/fall2017.pdf"
+                    image_url: "http://amglaurier.com/uploads/magazines/fall2017.png"
+                }
+            ]
+        }`
+    },
     posts: function (pageSize) {
         return {
             url: `http://amglaurier.com/api/posts/?pagesize=${pageSize || 20}`,
@@ -128,6 +144,13 @@ export interface PostsResponse {
     next: string,
     previous: string,
     results: Array<BlogPost>
+}
+
+export interface MagazineResponse {
+    count: number,
+    next: string,
+    previous: string,
+    results: Array<{title: string, slug: string, img_url: string}>
 }
 
 export interface BlogPost {

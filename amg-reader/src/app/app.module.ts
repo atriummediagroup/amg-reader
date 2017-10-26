@@ -11,6 +11,7 @@ import {CategoryListPage} from '../pages/category-list/category-list';
 import {MagazineListPage} from '../pages/magazine-list/magazine-list';
 import {PhotoblogDetailPage} from '../pages/photoblog-detail/photoblog-detail';
 import {PhotoblogListPage} from '../pages/photoblog-list/photoblog-list';
+import {MagazineDetailPage} from '../pages/magazine-detail/magazine-detail';
 
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
@@ -29,6 +30,7 @@ import {HTTP} from '@ionic-native/http';
         MagazineListPage,
         PhotoblogDetailPage,
         PhotoblogListPage,
+        MagazineDetailPage,
     ],
     imports: [
         BrowserModule,
