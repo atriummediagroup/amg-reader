@@ -20,14 +20,14 @@
 
     <div class="postPreviewContainer" *ngFor="let post of model.posts">
         <ion-card (click)="viewPost(post)">
-            <div class="content image">
-                <img src="{{post.image_url}}" alt="" style="width: 100%">
+            <div class="content info">
+                <div class="metadata">{{post.category_title}} | {{post.created | date}}</div>
+                <div class="divider"></div>
+                <div class="title">{{post.title}}</div>
             </div>
 
-            <div class="content info">
-                <h2>{{post.title}}</h2>
-                <p>{{post.category_title}}</p>
-                <p>{{post.created | date}}</p>
+            <div class="content image">
+                <img src="{{post.image_url}}" alt="" style="width: 100%">
             </div>
         </ion-card>
     </div>
