@@ -124,7 +124,7 @@ Gets all the magazine issues in order of newest to oldest
 
 #### Example
 
-**GET** `http://amglaurier.com/api/posts/?pagesize=10&category=education&title=business%20electives`
+**GET** `http://amglaurier.com/api/issues/`
 
 **Returns**
 {
@@ -144,7 +144,7 @@ Gets all the magazine issues in order of newest to oldest
             "pdf_url_link": "http://amglaurier.com/uploads/magazine_pdfs/winter2017.pdf",
             "slug": "winter-2017"
         },
-
+...
 
 
 
