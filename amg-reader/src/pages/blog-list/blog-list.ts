@@ -14,8 +14,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'blog-list.html',
 })
 export class BlogListPage {
-
+category: String;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.category = this.navParams.get('category');
+    console.log('category:' + this.category);
   }
 
   ionViewDidLoad() {

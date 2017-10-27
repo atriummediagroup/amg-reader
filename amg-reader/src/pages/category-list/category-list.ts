@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HttpProvider, Requests } from '../../providers/http/http';
+import { BlogListPage } from '../blog-list/blog-list';
+
 /**
  * Generated class for the CategoryListPage page.
  *
@@ -15,6 +17,7 @@ import { HttpProvider, Requests } from '../../providers/http/http';
 })
 export class CategoryListPage {
   categories:Array<JSON>;
+  category:JSON;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public httpProvider: HttpProvider) {
     this.httpProvider.get(Requests.categories).then(value => {
@@ -23,6 +26,14 @@ export class CategoryListPage {
       this.categories = value.data.results;     
   }).catch(error => {
       console.log(error);
-  })
+  });
+  
+    
+
+  } 
+  public goToBlogList(cat:any){
+    this.navCtrl.push(BlogListPage,{
+      category:cat
+    });
   }
-  }
+}

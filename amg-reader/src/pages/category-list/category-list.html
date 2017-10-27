@@ -7,12 +7,12 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content class="card-background-page">
 
- <ion-card *ngFor = "let category of categories">
-    <ion-card-content>
-        <div class="category-text">{{category.title}}</div>
-      </ion-card-content>
+ <ion-card *ngFor = "let category of categories" (click)="goToBlogList(category.slug)">
+        <img src="../assets/imgs/card-saopaolo.png"/>
+        <div class="card-title">{{category.title}}</div>  
+        <div class="card-subtitle">{{category.description}}</div>
   </ion-card>  
 
 </ion-content>
