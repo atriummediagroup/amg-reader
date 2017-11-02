@@ -4,7 +4,8 @@ import {HTTP, HTTPResponse} from '@ionic-native/http';
 import {Platform} from 'ionic-angular';
 
 // Uses the web version of HTTP rather than the cordova version (which doesnt work on web)
-const DEVELOPMENT = false;
+const DEVELOPMENT = true;
+// const DEVELOPMENT = false;
 /*
  Generated class for the HttpProvider provider.
 
@@ -58,30 +59,35 @@ export class HttpProvider {
 
 export const Requests = {
     categories: {
-        url: 'http://amglaurier.com/categories/?pagesize=100',
+        url: 'http://amglaurier.com/api/categories/?pagesize=100',
         offlineData: {
             "count": 12,
-            "next": "http://amglaurier.com/categories/?page=2&pagesize=5",
+            "next": "http://amglaurier.com/api/categories/?page=2&pagesize=5",
             "previous": null,
             "results": [
                 {
                     "title": "School",
+                    "description": "Description goes here",
                     "slug": "education"
                 },
                 {
                     "title": "Opinions",
+                    "description": "Description goes here",
                     "slug": "opinions"
                 },
                 {
                     "title": "Operations",
+                    "description": "Description goes here",
                     "slug": "operations"
                 },
                 {
                     "title": "Marketing",
+                    "description": "Description goes here",
                     "slug": "marketing"
                 },
                 {
                     "title": "Life and Skills",
+                    "description": "Description goes here",
                     "slug": "personal-finance"
                 }
             ]

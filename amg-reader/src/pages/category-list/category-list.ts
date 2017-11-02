@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { HttpProvider, Requests } from '../../providers/http/http';
+import { BlogListPage } from '../blog-list/blog-list';
 
 /**
  * Generated class for the CategoryListPage page.
@@ -14,12 +16,21 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'category-list.html',
 })
 export class CategoryListPage {
+  categories:Array<JSON>;
+  category:JSON;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public httpProvider: HttpProvider) {
+    this.httpProvider.get(Requests.categories).then(value => {
+      // console.log(JSON.parse(value.data));
+      console.log(value.data.results);
+      this.categories = value.data.results;     
+  }).catch(error => {
+      console.log(error);
+  })
+  } 
+
+  public goToBlogList(cat:String){
+    this.navCtrl.push(BlogListPage,
+      {searchQuery: [{key:'category',value:cat}]})
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CategoryListPage');
-  }
-
 }
