@@ -5,3 +5,5 @@
 amg-reader/.sourcemaps/
 amg-reader/node_modules/
 amg-reader/www/
+amg-reader/platforms
+amg-reader/plugins

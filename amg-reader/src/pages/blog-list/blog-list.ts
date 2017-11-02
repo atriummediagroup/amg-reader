@@ -29,12 +29,13 @@ export class BlogListPage {
 
     ionViewDidLoad() {
         // Get the post data from the server
-        this.http.get(Requests.posts(10)).then(value => {
-            console.log(JSON.parse(value.data));
+        this.http.get(Requests.posts(10, [])).then(value => {
             const data = <PostsResponse>JSON.parse(value.data);
             this.model.nextPage = data.next;
-            this.model.posts = data.results
+            this.model.posts = data.results;
         }).catch(error => {
+            alert(error);
+
             console.log(error);
         })
     }

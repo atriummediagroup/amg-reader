@@ -18,6 +18,7 @@ import {PipesModule} from '../pipes/pipes.module';
 import {HttpProvider} from '../providers/http/http';
 import {HTTP} from '@ionic-native/http';
 import {MarkdownModule} from 'angular2-markdown';
+import {SocialSharing} from '@ionic-native/social-sharing';
 
 @NgModule({
     declarations: [
@@ -54,7 +55,8 @@ import {MarkdownModule} from 'angular2-markdown';
         StatusBar,
         SplashScreen,
         {provide: ErrorHandler, useClass: IonicErrorHandler},
-        HttpProvider
+        HttpProvider,
+        SocialSharing
     ]
 })
 export class AppModule {
