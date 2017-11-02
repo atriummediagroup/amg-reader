@@ -22,14 +22,17 @@ export class BlogListPage {
         posts: ([] as Array<BlogPost>)
     };
 
+    private searchQuery;
+
     /*--- Initialization ---*/
 
     constructor(public navCtrl: NavController, public navParams: NavParams, private http: HttpProvider) {
+        this.searchQuery = navParams.get('searchQuery') || [{key: 'category', value: 'education'}];
     }
 
     ionViewDidLoad() {
         // Get the post data from the server
-        this.http.get(Requests.posts(10, [])).then(value => {
+        this.http.get(Requests.posts(10, this.searchQuery)).then(value => {
             const data = <PostsResponse>JSON.parse(value.data);
             this.model.nextPage = data.next;
             this.model.posts = data.results;
