@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import 'rxjs/add/operator/map';
 import {HTTP, HTTPResponse} from '@ionic-native/http';
+import {Platform} from 'ionic-angular';
 
 // Uses the web version of HTTP rather than the cordova version (which doesnt work on web)
 const DEVELOPMENT = true;
@@ -13,24 +14,44 @@ const DEVELOPMENT = true;
 @Injectable()
 export class HttpProvider {
 
-    constructor(public http: HTTP) {
+    isLive = false;
+
+    constructor(private http: HTTP, private plt: Platform) {
+        this.plt.ready().then((readySource) => {
+            this.isLive = true;
+        });
     }
 
 
     /* get(request) Takes a parameter of the const Requests defined below
-    * and will return either the offlineData if DEVELOPMENT is true or
-    * will try to process the get request and return a response of
-    * type 'PostsResponse' (defined by the interface below) */
+     * and will return either the offlineData if DEVELOPMENT is true or
+     * will try to process the get request and return a response of
+     * type 'PostsResponse' (defined by the interface below) */
 
     /* Example Usage: http.get(Requests.post).then(value => {}).error(error => {})*/
 
     get(request): Promise<HTTPResponse> {
-        return DEVELOPMENT ?
-            new Promise((success, reject) => {
+        if (DEVELOPMENT) {
+            return new Promise((success, reject) => {
                 success({
                     data: JSON.stringify(request.offlineData)
                 })
-            }) : this.http.get(request.url, {}, {});
+            })
+        } else {
+            if (this.isLive) {
+                return this.http.get(request.url, {}, {});
+            } else {
+                return new Promise((success, reject) => {
+                    this.plt.ready().then((readySource) => {
+                        this.http.get(request.url, {}, {}).then(data => {
+                            success(data)
+                        }).catch(error => {
+                            reject(error)
+                        });
+                    });
+                })
+            }
+        }
     }
 
 }
@@ -66,7 +87,7 @@ export const Requests = {
             ]
         }
     },
-    posts: function (pageSize, queries: Array<{key:string, value:any}>) {
+    posts: function (pageSize, queries: Array<{ key: string, value: any }>) {
         let url = `http://amglaurier.com/api/posts/?pagesize=${pageSize || 20}`;
         queries.forEach(query => {
             url += `&${query.key}=${query.value.split(' ').join('%20')}`
