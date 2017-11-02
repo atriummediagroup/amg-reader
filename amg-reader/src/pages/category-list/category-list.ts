@@ -26,14 +26,11 @@ export class CategoryListPage {
       this.categories = value.data.results;     
   }).catch(error => {
       console.log(error);
-  });
-  
-    
-
+  })
   } 
-  public goToBlogList(cat:any){
-    this.navCtrl.push(BlogListPage,{
-      category:cat
-    });
+
+  public goToBlogList(cat:String){
+    this.navCtrl.push(BlogListPage,
+      {searchQuery: [{key:'category',value:cat}]})
   }
 }
