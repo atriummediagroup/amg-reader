@@ -9,13 +9,13 @@
 
 <ion-content class="card-background-page">
 
- <ion-card *ngFor = "let category of categories" (click)="goToBlogList(category.slug)">
-   
-        <img src="../assets/imgs/card-saopaolo.png"/>
+ <ion-card *ngFor = "let category of categories" (click)="goToBlogList(category)">
+
+        <img src="{{category.image_url}}"/>
         <!-- Uncomment this when we have images provided from API -->
         <!-- <img src="{{category.image_url}}"/> -->
-        <div class="card-title">{{category.title}}</div>  
+        <div class="card-title">{{category.title}}</div>
         <div class="card-subtitle">{{category.description}}</div>
-  </ion-card>  
+  </ion-card>
 
 </ion-content>

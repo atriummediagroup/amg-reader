@@ -4,7 +4,7 @@ import {HTTP, HTTPResponse} from '@ionic-native/http';
 import {Platform} from 'ionic-angular';
 
 // Uses the web version of HTTP rather than the cordova version (which doesnt work on web)
-const DEVELOPMENT = true;
+const DEVELOPMENT = false;
 // const DEVELOPMENT = false;
 /*
  Generated class for the HttpProvider provider.
@@ -68,38 +68,31 @@ export const Requests = {
                 {
                     "title": "School",
                     "description": "Description goes here",
-                    "slug": "education"
+                    "slug": "education",
+                    "image_url": "http://amglaurier.com/uploads/categories/card-saopaolo.png"
                 },
                 {
                     "title": "Opinions",
                     "description": "Description goes here",
-                    "slug": "opinions"
+                    "slug": "opinions",
+                    "image_url": "http://amglaurier.com/uploads/categories/card-saopaolo.png"
                 },
                 {
                     "title": "Operations",
                     "description": "Description goes here",
-                    "slug": "operations"
-                },
-                {
-                    "title": "Marketing",
-                    "description": "Description goes here",
-                    "slug": "marketing"
-                },
-                {
-                    "title": "Life and Skills",
-                    "description": "Description goes here",
-                    "slug": "personal-finance"
+                    "slug": "operations",
+                    "image_url": "http://amglaurier.com/uploads/categories/card-saopaolo.png"
                 }
             ]
         }
     },
-    posts: function (pageSize, queries: Array<{ key: string, value: any }>) {
+    posts: function (pageSize, queries: Array<{ key: string, value: any }>, explicitUrl: String) {
         let url = `http://amglaurier.com/api/posts/?pagesize=${pageSize || 20}`;
         queries.forEach(query => {
             url += `&${query.key}=${query.value.split(' ').join('%20')}`
         });
         return {
-            url: url,
+            url: explicitUrl || url,
             offlineData: {
                 "count": 170,
                 "next": "http://amglaurier.com/api/posts/?page=2&pagesize=3",
@@ -151,7 +144,7 @@ export interface CategoryResponse {
     count: number,
     next: string,
     previous: string,
-    results: Array<{ title: string, slug: string }>
+    results: Array<CategoryInterface>
 }
 
 export interface PostsResponse {
@@ -171,4 +164,11 @@ export interface BlogPost {
     created: string,
     image_url: string,
     content: string
+}
+
+export interface CategoryInterface {
+    title: string,
+    description: string,
+    image_url: string,
+    slug: string
 }

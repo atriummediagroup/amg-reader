@@ -10,7 +10,7 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>Latest Blogs</ion-title>
+        <ion-title>{{model.title}}</ion-title>
     </ion-navbar>
 
 </ion-header>
@@ -31,5 +31,12 @@
             </div>
         </ion-card>
     </div>
+
+    <ion-infinite-scroll (ionInfinite)="loadNextPosts($event)" *ngIf="model.nextPage">
+        <ion-infinite-scroll-content loadingSpinner="bubbles"
+                                     loadingText="Loading more data...">
+
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
 
 </ion-content>
