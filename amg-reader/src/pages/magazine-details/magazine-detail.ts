@@ -11,10 +11,10 @@ import { DocumentViewer, DocumentViewerOptions } from '@ionic-native/document-vi
 
 @IonicPage()
 @Component({
-  selector: 'page-pdfview',
-  templateUrl: 'pdfview.html',
+  selector: 'page-magazine-details',
+  templateUrl: 'magazine-detail.html',
 })
-export class PdfviewPage {
+export class MagazineDetailPage {
 
   options : DocumentViewerOptions = {
     title: 'Pdf'
