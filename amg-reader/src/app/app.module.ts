@@ -18,6 +18,7 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 import {PipesModule} from '../pipes/pipes.module';
 import {HttpProvider} from '../providers/http/http';
 import {HTTP} from '@ionic-native/http';
+import { DocumentViewer } from '@ionic-native/document-viewer';
 
 @NgModule({
     declarations: [
@@ -54,7 +55,8 @@ import {HTTP} from '@ionic-native/http';
         StatusBar,
         SplashScreen,
         {provide: ErrorHandler, useClass: IonicErrorHandler},
-        HttpProvider
+        HttpProvider,
+        DocumentViewer
     ]
 })
 export class AppModule {
