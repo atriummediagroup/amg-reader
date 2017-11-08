@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { PdfviewPage } from './pdfview';
+import { MagazineDetailPage } from './magazine-detail';
 
 @NgModule({
   declarations: [
-    PdfviewPage,
+    MagazineDetailPage,
   ],
   imports: [
-    IonicPageModule.forChild(PdfviewPage),
+    IonicPageModule.forChild(MagazineDetailPage),
   ],
 })
-export class PdfviewPageModule {}
+export class MagazineDetailPageModule {}
+function newFunction() {
+    return MagazineDetailPage;
+}
