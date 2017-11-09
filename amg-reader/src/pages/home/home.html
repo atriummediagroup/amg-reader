@@ -9,11 +9,81 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+<ion-content>
+  <ion-grid>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+    <ion-row>
+      <ion-col col-12>
+        <div class="title">Blogs</div>
+          <div class="latest-post" *ngFor="let post of model.posts; let latest=first;">
+              <div *ngIf="latest" (click)="viewPost(post)">
+                <img src="{{post.image_url}}" alt="" style="width: 100%">
+                <div class="title">{{post.title}}</div>
+                      <div class="metadata">
+                        <span>{{post.author_name}}</span>
+                        <span style="float:right">{{post.category_title}} | {{post.created | date}}</span>
+                      </div>
+                </div>
+          </div>
+          <hr>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row class="horizontal-scroll">
+      <ion-col col-12>
+          <ion-scroll scrollX="true">
+            <div class="scroll-item" *ngFor="let post of model.posts; let latest=first;">
+                <div *ngIf="!latest" (click)="viewPost(post)">
+                    <img src="{{post.image_url}}" style="width: 50%; height:100%;">
+                    <div class="title">{{post.title}}</div>
+                          <div class="metadata">
+                            <span>{{post.author_name}}</span>
+                            <span style="float:right">{{post.category_title}} | {{post.created | date}}</span>
+                          </div>
+                    </div>
+              </div>
+
+            </ion-scroll>
+      </ion-col>
+    </ion-row>
+
+   
+
+
+    <ion-row>
+      <ion-col col-12>
+          <div class="title">Photography</div>
+          <div class="latest-post" *ngFor="let post of model.posts; let latest=first;">
+              <div *ngIf="latest" (click)="viewPost(post)">
+                <img src="{{post.image_url}}" alt="" style="width: 100%">
+                <div class="title">{{post.title}}</div>
+                      <div class="metadata">
+                        <span>{{post.author_name}}</span>
+                        <span style="float:right">{{post.category_title}} | {{post.created | date}}</span>
+                      </div>
+                </div>
+          </div>
+          <hr>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col col-12>
+            <div class="title">Magazines</div>
+            <div class="latest-post" *ngFor="let post of model.posts; let latest=first;">
+                <div *ngIf="latest" (click)="viewPost(post)">
+                  <img src="{{post.image_url}}" alt="" style="width: 100%">
+                  <div class="title">{{post.title}}</div>
+                        <div class="metadata">
+                          <span>{{post.author_name}}</span>
+                          <span style="float:right">{{post.category_title}} | {{post.created | date}}</span>
+                        </div>
+                  </div>
+            </div>
+            <hr>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
 </ion-content>

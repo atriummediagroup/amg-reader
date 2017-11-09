@@ -1,8 +1,34 @@
-page-home {
+page-home {}
 
+.horizontal-scroll {
+  ion-scroll[scrollX] {
+    white-space: nowrap;
+    height:100px;
+    .scroll-item {
+        // height:100%;
+        display: inline-block;
+        margin-top:-5.5em;
+        
+    }
+  }
 }
 
-#logo{
-    margin-top: 2px;
-    height: 27px;
+.latest-post {
+  margin-bottom: 1em;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+.metadata {
+  // float:right;
+  color: grey;
+  font-size: 1.25em;
+}
+
+#logo {
+  margin-top: 2px;
+  height: 27px;
 }
