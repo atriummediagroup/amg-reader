@@ -51,19 +51,36 @@
         <ion-row>
             <ion-col col-12>
                 <div class="title">Photography</div>
-                <div class="latest-post" *ngFor="let post of model.photoPosts; let latest=first;">
-                    <div *ngIf="latest" (click)="viewPhotoPost(post)">
-                        <img src="{{post.image_url}}" alt="" style="width: 100%">
-                        <div class="title">{{post.title}}</div>
+                <div class="latest-post" *ngFor="let photoPost of model.photoPosts; let latestPhoto=first;">
+                    <div *ngIf="latestPhoto" (click)="viewPhotoPost(photoPost)">
+                        <img src="{{photoPost.image_url}}" style="width: 100%">
+                        <div class="title">{{photoPost.title}}</div>
                         <div class="metadata">
-                            <span>{{post.author_name}}</span>
-                            <span style="float:right">{{post.category_title}} | {{post.created | date}}</span>
+                            <span>{{photoPost.author_name}}</span>
+                            <span style="float:right">{{photoPost.created | date}}</span>
                         </div>
                     </div>
                 </div>
                 <hr>
             </ion-col>
         </ion-row>
+
+        <div *ngFor="let photoPost of model.photoPosts; let latestPhoto=first;">
+            <div *ngIf="!latestPhoto" (click)="viewPhotoPost(photoPost)">
+                <ion-row class="other-articles">
+                    <ion-col col-9>
+                        <div class="small-title">{{photoPost.title}}</div>
+                        <div class="small-metadata">
+                            <div>{{photoPost.author_name}}</div>
+                            <div>{{photoPost.created | date}}</div>
+                        </div>
+                    </ion-col>
+                    <ion-col col-3>
+                        <img class="small-image" src="{{photoPost.image_url}}">
+                    </ion-col>
+                </ion-row>
+            </div>
+        </div>
 
         <br>
         <ion-row>

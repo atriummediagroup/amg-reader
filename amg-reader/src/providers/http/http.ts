@@ -4,8 +4,8 @@ import {HTTP, HTTPResponse} from '@ionic-native/http';
 import {Platform} from 'ionic-angular';
 
 // Uses the web version of HTTP rather than the cordova version (which doesnt work on web)
-const DEVELOPMENT = true;
-// const DEVELOPMENT = false;
+// const DEVELOPMENT = true;
+const DEVELOPMENT = false;
 /*
  Generated class for the HttpProvider provider.
 
@@ -140,7 +140,7 @@ export const Requests = {
     },
 
     photoPosts: function (pageSize, queries: Array<{ key: string, value: any }>, explicitUrl: String) {
-        let url = `http://amglaurier.com/api/posts/?pagesize=${pageSize || 20}`;
+        let url = `http://amglaurier.com/api/photoposts/?pagesize=${pageSize || 20}`;
         queries.forEach(query => {
             url += `&${query.key}=${query.value.split(' ').join('%20')}`
         });

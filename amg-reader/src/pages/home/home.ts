@@ -27,7 +27,7 @@ export class HomePage {
     }
 
     ionViewDidLoad() {
-        console.log('HERE');
+        // console.log('HERE');
         // Get latest post from the server
         this.http.get(Requests.posts(4, this.searchQuery, null)).then(value => {
             const data = <PostsResponse>JSON.parse(value.data);
