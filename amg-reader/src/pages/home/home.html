@@ -86,14 +86,14 @@
         <ion-row>
             <ion-col col-12>
                 <div class="title">Magazines</div>
-                <div class="latest-post" *ngFor="let post of model.blogPosts; let latest=first;">
-                    <div *ngIf="latest" (click)="viewPost(post)">
-                        <img src="{{post.image_url}}" alt="" style="width: 100%">
-                        <div class="title">{{post.title}}</div>
-                        <div class="metadata">
-                            <span>{{post.author_name}}</span>
+                <div class="latest-post" *ngFor="let issue of model.issues; let latestIssue=first;">
+                    <div *ngIf="latestIssue" (click)="viewIssue(issue)">
+                        <img src="{{issue.image_url}}" alt="" style="width: 100%">
+                        <div class="title">{{issue.title}}</div>
+                        <!-- <div class="metadata">
+                            <span>{{issue.author_name}}</span>
                             <span style="float:right">{{post.category_title}} | {{post.created | date}}</span>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <hr>

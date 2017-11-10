@@ -139,6 +139,47 @@ export const Requests = {
         }
     },
 
+    issues: function (pageSize, queries: Array<{ key: string, value: any }>, explicitUrl: String) {
+        let url = `http://amglaurier.com/api/issues/?pagesize=${pageSize || 20}`;
+        queries.forEach(query => {
+            url += `&${query.key}=${query.value.split(' ').join('%20')}`
+        });
+        return {
+            url: explicitUrl || url,
+            offlineData: {
+                "count": 17,
+                "next": null,
+                "previous": null,
+                "results": [
+                    {
+                        "title": "Fall 2017",
+                        "image_url": "http://amglaurier.com/uploads/magazines/fall2017.png",
+                        "pdf_url_link": "http://amglaurier.com/uploads/magazine_pdfs/fall2017.pdf",
+                        "slug": "fall-2017"
+                    },
+                    {
+                        "title": "Winter 2017",
+                        "image_url": "http://amglaurier.com/uploads/magazines/winter2017.png",
+                        "pdf_url_link": "http://amglaurier.com/uploads/magazine_pdfs/winter2017.pdf",
+                        "slug": "winter-2017"
+                    },
+                    {
+                        "title": "O-Day 2016",
+                        "image_url": "http://amglaurier.com/uploads/magazines/oday2016_QRRxRle.png",
+                        "pdf_url_link": "http://amglaurier.com/uploads/magazine_pdfs/oday2016.pdf",
+                        "slug": "oday-2016"
+                    },
+                    {
+                        "title": "Winter 2016",
+                        "image_url": "http://amglaurier.com/uploads/magazines/winter2016_ytMiccp.jpg",
+                        "pdf_url_link": "http://amglaurier.com/uploads/magazine_pdfs/winter2016.pdf",
+                        "slug": "winter-2016"
+                    }
+                ]
+            }
+        }
+    },
+
     photoPosts: function (pageSize, queries: Array<{ key: string, value: any }>, explicitUrl: String) {
         let url = `http://amglaurier.com/api/photoposts/?pagesize=${pageSize || 20}`;
         queries.forEach(query => {
@@ -191,11 +232,25 @@ export interface PostsResponse {
     results: Array<BlogPost>
 }
 
+export interface CategoryInterface {
+    title: string,
+    description: string,
+    image_url: string,
+    slug: string
+}
+
 export interface PhotoPostsResponse {
     count: number,
     next: string,
     previous: string,
     results: Array<PhotoPost>
+}
+
+export interface IssuesResponse{
+    count: number,
+    next: string,
+    previous: string,
+    results: Array<Issue>
 }
 
 export interface PhotoPost {
@@ -222,9 +277,11 @@ export interface BlogPost {
     content: string
 }
 
-export interface CategoryInterface {
-    title: string,
-    description: string,
-    image_url: string,
-    slug: string
+export interface Issue{
+    title:string,
+    image_url:string,
+    pdf_url_link:string,
+    slug:string
 }
+
+

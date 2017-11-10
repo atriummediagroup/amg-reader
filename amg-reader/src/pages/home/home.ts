@@ -1,9 +1,11 @@
+import { IssuesResponse } from './../../providers/http/http';
 import {Component} from '@angular/core';
 import {IonicPage, NavController} from 'ionic-angular';
-import {BlogPost, HttpProvider, PhotoPost, PhotoPostsResponse, PostsResponse, Requests} from '../../providers/http/http';
+import {HttpProvider, Issue, BlogPost, PhotoPost, PhotoPostsResponse, PostsResponse, Requests} from '../../providers/http/http';
 import {BlogDetailPage} from '../blog-detail/blog-detail';
 import {PhotoblogDetailPage} from '../photoblog-detail/photoblog-detail';
-// import { BlogListPage } from './../blog-list/blog-list';
+// import {MagazineDetailP}
+
 
 @Component({
     selector: 'page-home',
@@ -14,9 +16,8 @@ export class HomePage {
         nextPage: "",
         blogPosts: ([] as Array<BlogPost>),
         photoPosts: ([] as Array<PhotoPost>),
+        issues: ([] as Array<Issue>),
         title: 'Latest Posts',
-
-
     };
 
     private searchQuery;
@@ -44,6 +45,15 @@ export class HomePage {
             alert(`Couldn't connect to the server. Please try again later.`);
             console.log(error);
         })
+
+        this.http.get(Requests.issues(1, this.searchQuery, null)).then(value=> {
+            const data = <IssuesResponse>JSON.parse(value.data);
+            this.model.issues = data.results;
+        }).catch(error=> {
+            alert(`Couldn't connect to the server. Please try again later.`);
+            console.log(error);
+        })
+        
     }
 
     /*--- UI Functions ---*/
@@ -60,5 +70,9 @@ export class HomePage {
             post: post
         })
     }
+    
+    // viewIssue(issue) {
+    //     this.navCtrl.push()
+    // }
 
 }
