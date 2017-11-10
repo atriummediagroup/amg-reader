@@ -4,7 +4,7 @@ import {HTTP, HTTPResponse} from '@ionic-native/http';
 import {Platform} from 'ionic-angular';
 
 // Uses the web version of HTTP rather than the cordova version (which doesnt work on web)
-const DEVELOPMENT = false;
+const DEVELOPMENT = true;
 // const DEVELOPMENT = false;
 /*
  Generated class for the HttpProvider provider.
@@ -137,6 +137,43 @@ export const Requests = {
                 ]
             }
         }
+    },
+
+    photoPosts: function (pageSize, queries: Array<{ key: string, value: any }>, explicitUrl: String) {
+        let url = `http://amglaurier.com/api/posts/?pagesize=${pageSize || 20}`;
+        queries.forEach(query => {
+            url += `&${query.key}=${query.value.split(' ').join('%20')}`
+        });
+        return {
+            url: explicitUrl || url,
+            offlineData: {
+                "count": 15,
+                "next": "http://amglaurier.com/api/photoposts/?page=2&pagesize=2",
+                "previous": null,
+                "results": [
+                    {
+                        "slug": "nightfall",
+                        "id": 21,
+                        "author_name": "Emily Ma",
+                        "draft": false,
+                        "title": "Nightfall",
+                        "created": "2017-11-02T05:05:03Z",
+                        "image_url": "http://amglaurier.com/uploads/blogs/1_TI2LtL7.jpg",
+                        "content": "<p><img alt=\"\" src=\"/uploads/ckeditor-uploads/2017/11/02/1.jpg\" /></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><img alt=\"\" src=\"/uploads/ckeditor-uploads/2017/11/02/2.jpg\" /></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><img alt=\"\" src=\"/uploads/ckeditor-uploads/2017/11/02/3.jpg\" /></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><img alt=\"\" src=\"/uploads/ckeditor-uploads/2017/11/02/4.jpg\" /></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><img alt=\"\" src=\"/uploads/ckeditor-uploads/2017/11/02/5.jpg\" /></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>This blog submitted by Atrium photographer Emily&nbsp;</p>"
+                    },
+                    {
+                        "slug": "ephemeral",
+                        "id": 20,
+                        "author_name": "Emily Ma",
+                        "draft": false,
+                        "title": "Ephemeral",
+                        "created": "2017-10-26T16:35:38Z",
+                        "image_url": "http://amglaurier.com/uploads/blogs/1_emVf8dP.jpg",
+                        "content": "<p><img alt=\"\" src=\"/upload/ckeditor-uploads/2017/10/26/1.jpg\" /><img alt=\"\" src=\"ckeditor-uploads/2017/10/26/1_MYlrxxK.jpg\" /><img alt=\"\" src=\"/upload/ckeditor-uploads/2017/10/26/1_QwV771C.jpg\" /><img alt=\"\" src=\"ckeditor-uploads/2017/10/26/1_t2vNgKH.jpg\" /><img alt=\"\" src=\"/uploads/ckeditor-uploads/2017/10/26/1_JE8F8oZ.jpg\" /></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><img alt=\"\" src=\"/uploads/ckeditor-uploads/2017/10/26/2_XQE1o2M.jpg\" /></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><img alt=\"\" src=\"/uploads/ckeditor-uploads/2017/10/26/3_r2Q8Xed.jpg\" /></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><img alt=\"\" src=\"/uploads/ckeditor-uploads/2017/10/26/4_GGOwpNC.jpg\" /></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><img alt=\"\" src=\"/uploads/ckeditor-uploads/2017/10/26/5_Nk2CqkV.jpg\" /></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>This photo blog submitted by Atrium photographer Alena</p>\r\n\r\n<p>Follow her on Instagram: <a href=\"https://www.instagram.com/m.lenaa_/\">@m.lenaa_</a></p>"
+                    }
+                ]
+            }
+        }
     }
 };
 
@@ -154,11 +191,30 @@ export interface PostsResponse {
     results: Array<BlogPost>
 }
 
+export interface PhotoPostsResponse {
+    count: number,
+    next: string,
+    previous: string,
+    results: Array<PhotoPost>
+}
+
+export interface PhotoPost {
+    slug: string,
+    id: number,
+    author_name: string,
+    draft: boolean,
+    title: string,
+    created: string,
+    image_url: string,
+    content: string
+}
+
 export interface BlogPost {
     slug: string,
     url: string,
     category_title: string,
-    author: string,
+    author_name: string,
+    author: number,
     draft: boolean,
     title: string,
     created: string,
