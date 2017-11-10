@@ -28,8 +28,6 @@ export class BlogListPage {
     /*--- Initialization ---*/
 
     constructor(public navCtrl: NavController, public navParams: NavParams, private http: HttpProvider) {
-        console.log(navParams);
-        console.log('--------------------------------');
         this.searchQuery = navParams.get('searchQuery') || [];
         this.model.title = navParams.get('title') || 'Latest Posts'
     }
@@ -38,7 +36,6 @@ export class BlogListPage {
         // Get the post data from the server
         this.http.get(Requests.posts(10, this.searchQuery, null)).then(value => {
             const data = <PostsResponse>JSON.parse(value.data);
-            console.log(data.next);
             this.model.nextPage = data.next;
             this.model.posts = data.results;
         }).catch(error => {
@@ -60,7 +57,6 @@ export class BlogListPage {
     loadNextPosts(infiniteScroll) {
         this.http.get(Requests.posts(10, this.searchQuery, this.model.nextPage)).then(value => {
             const data = <PostsResponse>JSON.parse(value.data);
-            console.log(data);
             this.model.nextPage = data.next;
             this.model.posts = this.model.posts.concat(data.results);
             infiniteScroll.complete();
