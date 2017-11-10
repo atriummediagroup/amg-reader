@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>MyApp</name>
-    <description>An awesome Ionic/Cordova app.</description>
-    <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+<widget android-packageName="com.amg.androidapp" id="com.amg.app" ios-CFBundleIdentifier="com.amg.iosapp" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>AMG Reader</name>
+    <description>Atrium Media Group's official Reader</description>
+    <author email="webmaster@sbeatrium.com" href="http://amglaurier.com/">Atrium Media Group</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -76,14 +76,18 @@
         <splash height="480" src="resources/ios/splash/Default~iphone.png" width="320" />
         <splash height="2732" src="resources/ios/splash/Default@2x~universal~anyany.png" width="2732" />
     </platform>
-    <plugin name="ionic-plugin-keyboard" spec="~2.2.1" />
-    <plugin name="cordova-plugin-whitelist" spec="1.3.1" />
-    <plugin name="cordova-plugin-device" spec="1.1.4" />
-    <plugin name="cordova-plugin-splashscreen" spec="~4.0.1" />
-    <plugin name="cordova-plugin-ionic-webview" spec="^1.1.11" />
-    <plugin name="cordova-plugin-advanced-http" spec="^1.6.2" />
-    <plugin name="cordova-plugin-x-socialsharing" spec="^5.2.1" />
-    <engine name="ios" spec="~4.5.3" />
     <allow-navigation href="http://10.20.245.114:8100" />
     <allow-navigation href="http://10.81.73.148:8100" />
+    <allow-navigation href="http://10.84.49.235:8100" />
+    <allow-navigation href="http://10.208.3.116:8100" />
+    <allow-navigation href="http://10.84.74.122:8100" />
+    <allow-navigation href="http://10.80.106.173:8100" />
+    <engine name="ios" spec="~4.5.3" />
+    <plugin name="cordova-plugin-advanced-http" spec="^1.6.2" />
+    <plugin name="cordova-plugin-x-socialsharing" spec="^5.2.1" />
+    <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
+    <plugin name="cordova-plugin-whitelist" spec="^1.3.1" />
+    <plugin name="cordova-plugin-device" spec="^1.1.4" />
+    <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
+    <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16" />
 </widget>
