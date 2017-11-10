@@ -1,87 +1,87 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>
-      <img id="logo" height="40" src="../../assets/imgs/amglogo.png" />
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>
+            <img id="logo" height="40" src="../../assets/imgs/amglogo.png"/>
+        </ion-title>
+    </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-grid>
+    <ion-grid>
 
-    <ion-row>
-      <ion-col col-12>
-        <div class="title">Blogs</div>
-        <div class="latest-post" *ngFor="let post of model.posts; let latest=first;">
-          <div *ngIf="latest" (click)="viewPost(post)">
-            <img src="{{post.image_url}}" alt="" style="width: 100%">
-            <div class="title">{{post.title}}</div>
-            <div class="metadata">
-              <span>{{post.author_name}}</span>
-              <span style="float:right">{{post.category_title}} | {{post.created | date}}</span>
-            </div>
-          </div>
-        </div>
-        <!-- <hr> -->
-      </ion-col>
-    </ion-row>
-
-    <div *ngFor="let post of model.posts; let latest=first;">
-      <div *ngIf="!latest" (click)="viewPost(post)">
-        <ion-row class="other-articles">
-          <ion-col col-9>
-            <div class="small-title">{{post.title}}</div>
-            <div class="small-metadata">
-              <div>{{post.author_name}}</div>
-              <div>{{post.category_title}} | {{post.created | date}}</div>
-            </div>
-          </ion-col>
-          <ion-col col-3>
-            <img style="small-image" src="{{post.image_url}}">
-          </ion-col>
+        <ion-row>
+            <ion-col col-12>
+                <div class="title">Blogs</div>
+                <div class="latest-post" *ngFor="let post of model.blogPosts; let latest=first;">
+                    <div *ngIf="latest" (click)="viewPost(post)">
+                        <img src="{{post.image_url}}" alt="" style="width: 100%">
+                        <div class="title">{{post.title}}</div>
+                        <div class="metadata">
+                            <span>{{post.author_name}}</span>
+                            <span style="float:right">{{post.category_title}} | {{post.created | date}}</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- <hr> -->
+            </ion-col>
         </ion-row>
-      </div>
-      <hr>
-    </div>
 
-    <br>
-    <ion-row>
-      <ion-col col-12>
-        <div class="title">Photography</div>
-        <div class="latest-post" *ngFor="let post of model.posts; let latest=first;">
-          <div *ngIf="latest" (click)="viewPost(post)">
-            <img src="{{post.image_url}}" alt="" style="width: 100%">
-            <div class="title">{{post.title}}</div>
-            <div class="metadata">
-              <span>{{post.author_name}}</span>
-              <span style="float:right">{{post.category_title}} | {{post.created | date}}</span>
+        <div *ngFor="let post of model.blogPosts; let latest=first;">
+            <div *ngIf="!latest" (click)="viewPost(post)">
+                <ion-row class="other-articles">
+                    <ion-col col-9>
+                        <div class="small-title">{{post.title}}</div>
+                        <div class="small-metadata">
+                            <div>{{post.author_name}}</div>
+                            <div>{{post.category_title}} | {{post.created | date}}</div>
+                        </div>
+                    </ion-col>
+                    <ion-col col-3>
+                        <img class="small-image" src="{{post.image_url}}">
+                    </ion-col>
+                </ion-row>
             </div>
-          </div>
+            <hr>
         </div>
-        <hr>
-      </ion-col>
-    </ion-row>
 
-    <br>
-    <ion-row>
-      <ion-col col-12>
-        <div class="title">Magazines</div>
-        <div class="latest-post" *ngFor="let post of model.posts; let latest=first;">
-          <div *ngIf="latest" (click)="viewPost(post)">
-            <img src="{{post.image_url}}" alt="" style="width: 100%">
-            <div class="title">{{post.title}}</div>
-            <div class="metadata">
-              <span>{{post.author_name}}</span>
-              <span style="float:right">{{post.category_title}} | {{post.created | date}}</span>
-            </div>
-          </div>
-        </div>
-        <hr>
-      </ion-col>
-    </ion-row>
+        <br>
+        <ion-row>
+            <ion-col col-12>
+                <div class="title">Photography</div>
+                <div class="latest-post" *ngFor="let post of model.photoPosts; let latest=first;">
+                    <div *ngIf="latest" (click)="viewPhotoPost(post)">
+                        <img src="{{post.image_url}}" alt="" style="width: 100%">
+                        <div class="title">{{post.title}}</div>
+                        <div class="metadata">
+                            <span>{{post.author_name}}</span>
+                            <span style="float:right">{{post.category_title}} | {{post.created | date}}</span>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            </ion-col>
+        </ion-row>
 
-  </ion-grid>
+        <br>
+        <ion-row>
+            <ion-col col-12>
+                <div class="title">Magazines</div>
+                <div class="latest-post" *ngFor="let post of model.blogPosts; let latest=first;">
+                    <div *ngIf="latest" (click)="viewPost(post)">
+                        <img src="{{post.image_url}}" alt="" style="width: 100%">
+                        <div class="title">{{post.title}}</div>
+                        <div class="metadata">
+                            <span>{{post.author_name}}</span>
+                            <span style="float:right">{{post.category_title}} | {{post.created | date}}</span>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            </ion-col>
+        </ion-row>
+
+    </ion-grid>
 </ion-content>

@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
-import {NavController} from 'ionic-angular';
-import {BlogPost, HttpProvider, PostsResponse, Requests} from '../../providers/http/http';
+import {IonicPage, NavController} from 'ionic-angular';
+import {BlogPost, HttpProvider, PhotoPost, PhotoPostsResponse, PostsResponse, Requests} from '../../providers/http/http';
 import {BlogDetailPage} from '../blog-detail/blog-detail';
+import {PhotoblogDetailPage} from '../photoblog-detail/photoblog-detail';
 // import { BlogListPage } from './../blog-list/blog-list';
 
 @Component({
@@ -11,8 +12,11 @@ import {BlogDetailPage} from '../blog-detail/blog-detail';
 export class HomePage {
     model = {
         nextPage: "",
-        posts: ([] as Array<BlogPost>),
+        blogPosts: ([] as Array<BlogPost>),
+        photoPosts: ([] as Array<PhotoPost>),
         title: 'Latest Posts',
+
+
     };
 
     private searchQuery;
@@ -23,12 +27,19 @@ export class HomePage {
     }
 
     ionViewDidLoad() {
+        console.log('HERE');
         // Get latest post from the server
         this.http.get(Requests.posts(4, this.searchQuery, null)).then(value => {
             const data = <PostsResponse>JSON.parse(value.data);
-            console.log(data.next);
-            // BlogListPage.model.nextPage = data.next;
-            this.model.posts = data.results;
+            this.model.blogPosts = data.results;
+        }).catch(error => {
+            alert(`Couldn't connect to the server. Please try again later.`);
+            console.log(error);
+        })
+
+        this.http.get(Requests.photoPosts(4, this.searchQuery, null)).then(value => {
+            const data = <PhotoPostsResponse>JSON.parse(value.data);
+            this.model.photoPosts = data.results;
         }).catch(error => {
             alert(`Couldn't connect to the server. Please try again later.`);
             console.log(error);
@@ -40,6 +51,12 @@ export class HomePage {
     /* Open a specific post */
     viewPost(post) {
         this.navCtrl.push(BlogDetailPage, {
+            post: post
+        })
+    }
+    /* Open a specific post */
+    viewPhotoPost(post) {
+        this.navCtrl.push(PhotoblogDetailPage, {
             post: post
         })
     }
