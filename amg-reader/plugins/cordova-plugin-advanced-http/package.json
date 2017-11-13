@@ -14,19 +14,19 @@
     ]
   ],
   "_from": "cordova-plugin-advanced-http@latest",
-  "_id": "cordova-plugin-advanced-http@1.6.2",
+  "_id": "cordova-plugin-advanced-http@1.8.1",
   "_inCache": true,
   "_location": "/cordova-plugin-advanced-http",
   "_nodeVersion": "6.11.1",
   "_npmOperationalInternal": {
     "host": "s3://npm-registry-packages",
-    "tmp": "tmp/cordova-plugin-advanced-http-1.6.2.tgz_1508428768811_0.6349792473483831"
+    "tmp": "tmp/cordova-plugin-advanced-http-1.8.1.tgz_1510136283405_0.27216880745254457"
   },
   "_npmUser": {
     "name": "silkimen",
     "email": "sefa@ilkimen.net"
   },
-  "_npmVersion": "2.15.12",
+  "_npmVersion": "3.10.10",
   "_phantomChildren": {},
   "_requested": {
     "raw": "cordova-plugin-advanced-http",
@@ -41,8 +41,8 @@
     "#USER",
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/cordova-plugin-advanced-http/-/cordova-plugin-advanced-http-1.6.2.tgz",
-  "_shasum": "402833527cb8ce6d11ca58a71c3ec0acabd9dee3",
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-advanced-http/-/cordova-plugin-advanced-http-1.8.1.tgz",
+  "_shasum": "7e748b691a1e23005d6f66ed470feba61fb066a8",
   "_shrinkwrap": null,
   "_spec": "cordova-plugin-advanced-http",
   "_where": "/Users/marktdodds/Documents/Work/AMG2017/amg-reader/amg-reader",
@@ -96,6 +96,7 @@
     "colors": "1.1.2",
     "cordova": "7.0.1",
     "mocha": "4.0.0",
+    "mock-require": "2.0.2",
     "mz": "2.7.0",
     "umd-tough-cookie": "2.3.2",
     "wd": "1.4.1",
@@ -103,8 +104,8 @@
   },
   "directories": {},
   "dist": {
-    "shasum": "402833527cb8ce6d11ca58a71c3ec0acabd9dee3",
-    "tarball": "https://registry.npmjs.org/cordova-plugin-advanced-http/-/cordova-plugin-advanced-http-1.6.2.tgz"
+    "shasum": "7e748b691a1e23005d6f66ed470feba61fb066a8",
+    "tarball": "https://registry.npmjs.org/cordova-plugin-advanced-http/-/cordova-plugin-advanced-http-1.8.1.tgz"
   },
   "engines": [
     {
@@ -112,7 +113,7 @@
       "version": ">=4.0.0"
     }
   ],
-  "gitHead": "1375727316cc338a6b74681915073b4325d409d6",
+  "gitHead": "937296b371793422183a00a5c3ad4243880d51f8",
   "homepage": "https://github.com/silkimen/cordova-plugin-advanced-http#readme",
   "keywords": [
     "cordova",
@@ -143,7 +144,11 @@
   },
   "scripts": {
     "release": "npm run test && ./scripts/release.sh",
-    "test": "./scripts/build-test-app.sh && ./scripts/test.sh --ios --emulator"
+    "test": "npm run testjs && npm run testapp",
+    "testandroid": "./scripts/build-test-app.sh --android --emulator && ./scripts/test-app.sh --android --emulator",
+    "testapp": "npm run testandroid && npm run testios",
+    "testios": "./scripts/build-test-app.sh --ios --emulator && ./scripts/test-app.sh --ios --emulator",
+    "testjs": "mocha ./test/js-mocha-specs.js"
   },
-  "version": "1.6.2"
+  "version": "1.8.1"
 }

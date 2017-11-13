@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
-import {CategoryInterface, CategoryResponse, HttpProvider, PostsResponse, Requests} from '../../providers/http/http';
+import {CategoryInterface, CategoryResponse, HttpProvider, Requests} from '../../providers/http/http';
 import {BlogListPage} from '../blog-list/blog-list';
 
 /**
