@@ -1,9 +1,10 @@
-import { IssuesResponse } from './../../providers/http/http';
+import {IssuesResponse} from './../../providers/http/http';
 import {Component} from '@angular/core';
-import {IonicPage, NavController} from 'ionic-angular';
+import {NavController} from 'ionic-angular';
 import {HttpProvider, Issue, BlogPost, PhotoPost, PhotoPostsResponse, PostsResponse, Requests} from '../../providers/http/http';
 import {BlogDetailPage} from '../blog-detail/blog-detail';
 import {PhotoblogDetailPage} from '../photoblog-detail/photoblog-detail';
+import {MagazineIssueProvider} from '../../providers/magazine-issue/magazine-issue';
 // import {MagazineDetailP}
 
 
@@ -22,7 +23,7 @@ export class HomePage {
 
     private searchQuery;
 
-    constructor(public navCtrl: NavController, private http: HttpProvider) {
+    constructor(public navCtrl: NavController, private http: HttpProvider, private magazine: MagazineIssueProvider) {
         this.searchQuery = [];
 
     }
@@ -36,7 +37,7 @@ export class HomePage {
         }).catch(error => {
             alert(`Couldn't connect to the server. Please try again later.`);
             console.log(error);
-        })
+        });
 
         this.http.get(Requests.photoPosts(4, this.searchQuery, null)).then(value => {
             const data = <PhotoPostsResponse>JSON.parse(value.data);
@@ -44,16 +45,16 @@ export class HomePage {
         }).catch(error => {
             alert(`Couldn't connect to the server. Please try again later.`);
             console.log(error);
-        })
+        });
 
-        this.http.get(Requests.issues(1, this.searchQuery, null)).then(value=> {
+        this.http.get(Requests.issues(1, this.searchQuery, null)).then(value => {
             const data = <IssuesResponse>JSON.parse(value.data);
             this.model.issues = data.results;
-        }).catch(error=> {
+        }).catch(error => {
             alert(`Couldn't connect to the server. Please try again later.`);
             console.log(error);
-        })
-        
+        });
+
     }
 
     /*--- UI Functions ---*/
@@ -64,15 +65,16 @@ export class HomePage {
             post: post
         })
     }
+
     /* Open a specific post */
     viewPhotoPost(post) {
         this.navCtrl.push(PhotoblogDetailPage, {
             post: post
         })
     }
-    
-    // viewIssue(issue) {
-    //     this.navCtrl.push()
-    // }
+
+    viewIssue(issue: Issue) {
+        this.magazine.loadMagazine(issue);
+    }
 
 }

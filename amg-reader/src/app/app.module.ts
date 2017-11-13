@@ -20,6 +20,12 @@ import {HttpProvider} from '../providers/http/http';
 import {HTTP} from '@ionic-native/http';
 import {MarkdownModule} from 'angular2-markdown';
 import {SocialSharing} from '@ionic-native/social-sharing';
+import {LocalStorageProvider} from '../providers/local-storage/local-storage';
+import {DocumentViewer} from '@ionic-native/document-viewer';
+import {FileTransfer} from '@ionic-native/file-transfer';
+import {File} from '@ionic-native/file';
+import {MagazineIssueProvider} from '../providers/magazine-issue/magazine-issue';
+import {SpinnerDialog} from '@ionic-native/spinner-dialog';
 
 @NgModule({
     declarations: [
@@ -59,7 +65,13 @@ import {SocialSharing} from '@ionic-native/social-sharing';
         SplashScreen,
         {provide: ErrorHandler, useClass: IonicErrorHandler},
         HttpProvider,
-        SocialSharing
+        SocialSharing,
+        LocalStorageProvider,
+        DocumentViewer,
+        FileTransfer,
+        File,
+        MagazineIssueProvider,
+        SpinnerDialog
     ]
 })
 export class AppModule {
