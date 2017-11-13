@@ -9,6 +9,7 @@ import {BlogDetailPage} from '../pages/blog-detail/blog-detail';
 import {BlogListPage} from '../pages/blog-list/blog-list';
 import {CategoryListPage} from '../pages/category-list/category-list';
 import {MagazineListPage} from '../pages/magazine-list/magazine-list';
+import {MagazineDetailPage} from '../pages/magazine-detail/magazine-detail';
 import {PhotoblogDetailPage} from '../pages/photoblog-detail/photoblog-detail';
 import {PhotoblogListPage} from '../pages/photoblog-list/photoblog-list';
 
@@ -29,6 +30,7 @@ import {SocialSharing} from '@ionic-native/social-sharing';
         BlogListPage,
         CategoryListPage,
         MagazineListPage,
+        MagazineDetailPage,
         PhotoblogDetailPage,
         PhotoblogListPage,
     ],
@@ -47,6 +49,7 @@ import {SocialSharing} from '@ionic-native/social-sharing';
         BlogListPage,
         CategoryListPage,
         MagazineListPage,
+        MagazineDetailPage,
         PhotoblogDetailPage,
         PhotoblogListPage,
     ],
