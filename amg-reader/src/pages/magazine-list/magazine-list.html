@@ -15,21 +15,6 @@
 
 
 <ion-content padding>
-  
-      <div class="magContainer" *ngFor="let magazine of magazines">
-          <ion-card (click)="viewMag(magazine)">
-              <div class="content info">
-                  <div class="title">{{magazine.title}}</div>
-              </div>
-  
-              <div class="content image">
-                  <img src="{{magazine.image_url}}" alt="" style="width: 100%">
-              </div>
-          </ion-card>
-      </div>
-  
-  </ion-content>
-
     <div class="postPreviewContainer" *ngFor="let issue of model.issues">
         <ion-card (click)="viewIssue(issue)">
             <div class="content info">
@@ -49,5 +34,10 @@
 
         </ion-infinite-scroll-content>
     </ion-infinite-scroll>
+
+
+
+  
+</ion-content>
 
 

@@ -24,7 +24,7 @@ export class MagazineIssueProvider {
                     private spinner: SpinnerDialog) {
         this.platform.ready().then((readySource) => {
             this.settings.isLive = true;
-            this.settings.downloadDirectory = cordova.file.dataDirectory + '/pdfs/';
+            this.settings.downloadDirectory = window.cordova.file.dataDirectory + '/pdfs/';
         });
     }
 
@@ -48,7 +48,7 @@ export class MagazineIssueProvider {
         const url = issue.pdf_url_link;
 
         if (this.settings.isLive) {
-            this.settings.downloadDirectory = cordova.file.dataDirectory + '/pdfs/';
+            this.settings.downloadDirectory = window.cordova.file.dataDirectory + '/pdfs/';
             fileTransfer.download(url, this.settings.downloadDirectory + issue.slug).then((entry) => {
                 localStorage.setItem(issue.pdf_url_link, entry.toURL());
                 this.loadMagazine(issue)
@@ -59,7 +59,7 @@ export class MagazineIssueProvider {
         } else {
             this.platform.ready().then((readySource) => {
                 this.settings.isLive = true;
-                this.settings.downloadDirectory = cordova.file.dataDirectory + '/pdfs/';
+                this.settings.downloadDirectory = window.cordova.file.dataDirectory + '/pdfs/';
                 this.downloadMagazine(issue);
             });
         }

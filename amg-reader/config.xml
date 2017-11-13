@@ -3,7 +3,7 @@
     <name>AMG Reader</name>
     <description>Atrium Media Group's official Reader</description>
     <author email="webmaster@sbeatrium.com" href="http://amglaurier.com/">Atrium Media Group</author>
-    <content original-src="index.html" src="http://10.20.186.94:8100" />
+    <content original-src="index.html" src="http://10.84.55.17:8100" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -83,6 +83,7 @@
     <allow-navigation href="http://10.84.74.122:8100" />
     <allow-navigation href="http://10.80.106.173:8100" />
     <allow-navigation href="http://10.20.186.94:8100" />
+    <allow-navigation href="http://10.84.55.17:8100" />
     <engine name="android" spec="~6.3.0" />
     <engine name="ios" spec="~4.5.3" />
     <plugin name="cordova-plugin-x-socialsharing" spec="^5.2.1" />
