@@ -21,9 +21,11 @@
     <div class="postPreviewContainer" *ngFor="let post of model.posts">
         <ion-card (click)="viewPost(post)">
             <div class="content info">
-                <div class="metadata">{{post.created | date}}</div>
-                <div class="divider"></div>
                 <div class="title">{{post.title}}</div>
+                <div class="divider"></div>
+                <div class="metadata">{{post.created | date}}</div>
+                
+                
             </div>
 
             <div class="content image">
