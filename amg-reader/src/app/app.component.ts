@@ -22,12 +22,13 @@ export class MyApp {
     constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
         this.initializeApp();
 
+        // var blog_categories = `    Categories`;
         // used for an example of ngFor and navigation
         this.pages = [
             {title: 'Home', component: HomePage},
-            {title: 'Blog Categories', component: CategoryListPage},
             {title: 'Blogs', component: BlogListPage},
-            {title: 'Photoblogs', component: PhotoblogListPage},
+            {title: 'Categories', component: CategoryListPage},
+            {title: 'Photography Blogs', component: PhotoblogListPage},
             {title: 'Magazines', component: MagazineListPage},
         ];
 

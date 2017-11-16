@@ -5,6 +5,9 @@ import {DocumentViewer, DocumentViewerOptions} from '@ionic-native/document-view
 import {Issue} from '../../providers/http/http';
 import {Platform} from 'ionic-angular';
 import {SpinnerDialog} from '@ionic-native/spinner-dialog';
+import {File} from '@ionic-native/file';
+
+declare let cordova: any;
 
 /*
  Generated class for the MagazineIssueProvider provider.
@@ -24,7 +27,7 @@ export class MagazineIssueProvider {
                     private spinner: SpinnerDialog) {
         this.platform.ready().then((readySource) => {
             this.settings.isLive = true;
-            this.settings.downloadDirectory = window.cordova.file.dataDirectory + '/pdfs/';
+            this.settings.downloadDirectory = cordova.file.dataDirectory + '/pdfs/';
         });
     }
 
@@ -48,7 +51,7 @@ export class MagazineIssueProvider {
         const url = issue.pdf_url_link;
 
         if (this.settings.isLive) {
-            this.settings.downloadDirectory = window.cordova.file.dataDirectory + '/pdfs/';
+            this.settings.downloadDirectory = cordova.file.dataDirectory + '/pdfs/';
             fileTransfer.download(url, this.settings.downloadDirectory + issue.slug).then((entry) => {
                 localStorage.setItem(issue.pdf_url_link, entry.toURL());
                 this.loadMagazine(issue)
@@ -59,7 +62,7 @@ export class MagazineIssueProvider {
         } else {
             this.platform.ready().then((readySource) => {
                 this.settings.isLive = true;
-                this.settings.downloadDirectory = window.cordova.file.dataDirectory + '/pdfs/';
+                this.settings.downloadDirectory = cordova.file.dataDirectory + '/pdfs/';
                 this.downloadMagazine(issue);
             });
         }

@@ -8,6 +8,7 @@ page-home {}
 .small-metadata{
   color:grey;
   font-size:1em;
+  
 }
 
 .small-image{
@@ -17,6 +18,7 @@ page-home {}
 
 .latest-post {
   margin-bottom: 1em;
+  background-color:white;
 }
 
 .title {
@@ -28,9 +30,27 @@ page-home {}
   // float:right;
   color: grey;
   font-size: 1.25em;
+  backgrond-color:white;
 }
 
 #logo {
   margin-top: 2px;
   height: 27px;
+}
+
+.other-articles{
+  background-color:white;
+}
+
+hr{
+  background-color:white;
+}
+
+.white-background {
+  background-color:white;
+}
+
+.header-title {
+  // background-color:color($colors,primary);
+  // color:white;
 }

@@ -9,27 +9,29 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="grey-background">
     <ion-grid>
-
         <ion-row>
-            <ion-col col-12>
-                <div class="title">Blogs</div>
+            <ion-col col-12 class="white-background">
+                <div class="title header-title">Blogs</div>
                 <div class="latest-post" *ngFor="let post of model.blogPosts; let latest=first;">
                     <div *ngIf="latest" (click)="viewPost(post)">
                         <img src="{{post.image_url}}" alt="" style="width: 100%">
                         <div class="title">{{post.title}}</div>
                         <div class="metadata">
                             <span>{{post.author_name}}</span>
-                            <span style="float:left">{{post.category_title}} | {{post.created | date}}</span>
+                            <span style="float:left">{{post.category_title}}</span>
+                                <span style="float:right">{{post.created | date}}</span>
                         </div>
                     </div>
                 </div>
-                <!-- <hr> -->
+                <br>
+                <hr>
             </ion-col>
         </ion-row>
+        <!-- <hr> -->
 
-        <div *ngFor="let post of model.blogPosts; let latest=first;">
+        <div class="white-background" *ngFor="let post of model.blogPosts; let latest=first;">
             <div *ngIf="!latest" (click)="viewPost(post)">
                 <ion-row class="other-articles">
                     <ion-col col-9>
@@ -43,13 +45,14 @@
                         <img class="small-image" src="{{post.image_url}}">
                     </ion-col>
                 </ion-row>
+                <hr>
             </div>
-            <hr>
         </div>
 
         <br>
+
         <ion-row>
-            <ion-col col-12>
+            <ion-col col-12 class="white-background">
                 <div class="title">Photography</div>
                 <div class="latest-post" *ngFor="let photoPost of model.photoPosts; let latestPhoto=first;">
                     <div *ngIf="latestPhoto" (click)="viewPhotoPost(photoPost)">
@@ -65,7 +68,7 @@
             </ion-col>
         </ion-row>
 
-        <div *ngFor="let photoPost of model.photoPosts; let latestPhoto=first;">
+        <div class="white-background" *ngFor="let photoPost of model.photoPosts; let latestPhoto=first;">
             <div *ngIf="!latestPhoto" (click)="viewPhotoPost(photoPost)">
                 <ion-row class="other-articles">
                     <ion-col col-9>
@@ -79,21 +82,18 @@
                         <img class="small-image" src="{{photoPost.image_url}}">
                     </ion-col>
                 </ion-row>
+                <hr>
             </div>
         </div>
 
         <br>
         <ion-row>
-            <ion-col col-12>
+            <ion-col col-12 class="white-background">
                 <div class="title">Magazines</div>
                 <div class="latest-post" *ngFor="let issue of model.issues; let latestIssue=first;">
                     <div *ngIf="latestIssue" (click)="viewIssue(issue)">
                         <img src="{{issue.image_url}}" alt="" style="width: 100%">
-                        <div class="title">{{issue.title}}</div>
-                        <!-- <div class="metadata">
-                            <span>{{issue.author_name}}</span>
-                            <span style="float:right">{{post.category_title}} | {{post.created | date}}</span>
-                        </div> -->
+                        <!-- <div class="title">{{issue.title}}</div> -->
                     </div>
                 </div>
                 <hr>
