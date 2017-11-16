@@ -4,7 +4,7 @@
             <ion-icon name="menu"></ion-icon>
         </button>
         <ion-title>
-            <img id="logo" height="40" src="../../assets/imgs/amglogo.png"/>
+            <img id="logo" height="40" src="assets/imgs/amglogo.png"/>
         </ion-title>
     </ion-navbar>
 </ion-header>
@@ -14,6 +14,7 @@
         <ion-row>
             <ion-col col-12 class="white-background">
                 <div class="title header-title">Blogs</div>
+                <br>
                 <div class="latest-post" *ngFor="let post of model.blogPosts; let latest=first;">
                     <div *ngIf="latest" (click)="viewPost(post)">
                         <img src="{{post.image_url}}" alt="" style="width: 100%">
@@ -54,6 +55,7 @@
         <ion-row>
             <ion-col col-12 class="white-background">
                 <div class="title">Photography</div>
+                <br>
                 <div class="latest-post" *ngFor="let photoPost of model.photoPosts; let latestPhoto=first;">
                     <div *ngIf="latestPhoto" (click)="viewPhotoPost(photoPost)">
                         <img src="{{photoPost.image_url}}" style="width: 100%">
@@ -90,6 +92,7 @@
         <ion-row>
             <ion-col col-12 class="white-background">
                 <div class="title">Magazines</div>
+                <br>
                 <div class="latest-post" *ngFor="let issue of model.issues; let latestIssue=first;">
                     <div *ngIf="latestIssue" (click)="viewIssue(issue)">
                         <img src="{{issue.image_url}}" alt="" style="width: 100%">
