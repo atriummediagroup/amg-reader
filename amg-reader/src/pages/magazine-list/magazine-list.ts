@@ -1,14 +1,14 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
-import {MagazineIssueProvider} from '../../providers/magazine-issue/magazine-issue';
 import {HttpProvider, Issue, IssuesResponse, Requests} from '../../providers/http/http';
-
+import {Platform} from 'ionic-angular';
 /**
  * Generated class for the MagazineListPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
+declare let cordova: any;
 
 @IonicPage()
 @Component({
@@ -24,10 +24,9 @@ export class MagazineListPage {
     };
 
 
-    constructor(public navCtrl: NavController, public navParams: NavParams,
-                private magazine: MagazineIssueProvider, private http: HttpProvider) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, private http: HttpProvider, private platform:Platform) {
+    
     }
-
 
     ionViewDidLoad() {
         console.log(localStorage);
@@ -44,8 +43,20 @@ export class MagazineListPage {
 
 
     viewIssue(issue: Issue) {
-        this.magazine.loadMagazine(issue);
+        if(this.platform.is('ios')) {
+            this.platform.ready().then(() => {
+                cordova.InAppBrowser.open(issue.pdf_url_link, "_blank", "location=false");
+            });
+        } else {
+            if(this.platform.is('ios')) {
+                this.platform.ready().then(() => {
+                    cordova.InAppBrowser.open(issue.pdf_url_link, "_system", "location=false");
+                });
+        }
+        
     }
+}
+
 
     /* Load the next 'x' blog posts */
     loadNextPosts(infiniteScroll) {
@@ -61,4 +72,5 @@ export class MagazineListPage {
         })
     }
 
+    
 }

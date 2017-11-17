@@ -14,13 +14,14 @@
         <ion-row>
             <ion-col col-12 class="white-background">
                 <div class="title header-title">Blogs</div>
-                <br>
+                <hr>
+                <!-- <br> -->
                 <div class="latest-post" *ngFor="let post of model.blogPosts; let latest=first;">
                     <div *ngIf="latest" (click)="viewPost(post)">
                         <img src="{{post.image_url}}" alt="" style="width: 100%">
                         <div class="title">{{post.title}}</div>
                         <div class="metadata">
-                            <span>{{post.author_name}}</span>
+                            <div>{{post.author_name}}</div>
                             <span style="float:left">{{post.category_title}}</span>
                                 <span style="float:right">{{post.created | date}}</span>
                         </div>
@@ -55,7 +56,8 @@
         <ion-row>
             <ion-col col-12 class="white-background">
                 <div class="title">Photography</div>
-                <br>
+                <hr>
+                <!-- <br> -->
                 <div class="latest-post" *ngFor="let photoPost of model.photoPosts; let latestPhoto=first;">
                     <div *ngIf="latestPhoto" (click)="viewPhotoPost(photoPost)">
                         <img src="{{photoPost.image_url}}" style="width: 100%">
@@ -92,11 +94,11 @@
         <ion-row>
             <ion-col col-12 class="white-background">
                 <div class="title">Magazines</div>
-                <br>
+                <hr>
+                <!-- <br> -->
                 <div class="latest-post" *ngFor="let issue of model.issues; let latestIssue=first;">
                     <div *ngIf="latestIssue" (click)="viewIssue(issue)">
                         <img src="{{issue.image_url}}" alt="" style="width: 100%">
-                        <!-- <div class="title">{{issue.title}}</div> -->
                     </div>
                 </div>
                 <hr>

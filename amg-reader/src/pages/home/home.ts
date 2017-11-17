@@ -1,11 +1,12 @@
 import { IssuesResponse } from './../../providers/http/http';
 import {Component} from '@angular/core';
-import {IonicPage, NavController} from 'ionic-angular';
+import { IonicPage, NavController, Platform } from 'ionic-angular';
 import {HttpProvider, Issue, BlogPost, PhotoPost, PhotoPostsResponse, PostsResponse, Requests} from '../../providers/http/http';
 import {BlogDetailPage} from '../blog-detail/blog-detail';
 import {PhotoblogDetailPage} from '../photoblog-detail/photoblog-detail';
 import {MagazineDetailPage} from '../magazine-detail/magazine-detail';
 
+declare let cordova: any;
 
 @Component({
     selector: 'page-home',
@@ -22,7 +23,7 @@ export class HomePage {
 
     private searchQuery;
 
-    constructor(public navCtrl: NavController, private http: HttpProvider) {
+    constructor(public navCtrl: NavController, private http: HttpProvider, private platform:Platform) {
         this.searchQuery = [];
 
     }
@@ -71,10 +72,17 @@ export class HomePage {
         })
     }
     
-    viewIssue(issue) {
-        this.navCtrl.push(MagazineDetailPage, {
-            issue: issue
-        })
+    viewIssue(issue: Issue) {
+        if(this.platform.is('ios')) {
+            this.platform.ready().then(() => {
+                cordova.InAppBrowser.open(issue.pdf_url_link, "_blank", "location=false");
+            });
+        } else {
+            this.platform.ready().then(() => {
+                cordova.InAppBrowser.open(issue.pdf_url_link, "_system", "location=false");
+            });
+        }
+        
     }
-
 }
+
