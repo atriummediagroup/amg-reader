@@ -15,17 +15,13 @@
 
 
 <ion-content padding class="grey-background">
+
     <div class="postPreviewContainer" *ngFor="let issue of model.issues">
         <ion-card (click)="viewIssue(issue)">
                 <div class="content image">
                         <img src="{{issue.image_url}}" alt="" style="width: 100%">
                     </div>
-            <!-- <div class="content info">
-                <div class="title">{{issue.title}}</div>
-                <div class="divider"></div>
-            </div> -->
 
-           
         </ion-card>
         <br>
     </div>
