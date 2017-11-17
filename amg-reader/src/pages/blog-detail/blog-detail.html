@@ -18,7 +18,7 @@
 
     <h1 class="title">{{post.title}}</h1>
 
-    <div style="text-align: center; opacity: 0.5;">{{post.author_name}} | {{post.created | date}}</div>
+    <div style="text-align: center; opacity: 0.5;">{{post.author_name || "Anonymous"}} | {{post.created | date}}</div>
 
     <div class="content" Markdown [innerHTML]="post.content | safeHtml">
     </div>
