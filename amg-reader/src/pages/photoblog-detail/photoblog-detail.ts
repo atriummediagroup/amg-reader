@@ -21,6 +21,7 @@ export class PhotoblogDetailPage {
 
     constructor(public navCtrl: NavController, public navParams: NavParams, private social: SocialSharing) {
         this.post = navParams.get('post') as PhotoPost;
+        console.log(this.post);
     }
 
     ionViewDidLoad() {

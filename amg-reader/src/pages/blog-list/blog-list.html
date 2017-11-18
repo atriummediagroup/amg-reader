@@ -18,20 +18,38 @@
 
 <ion-content padding class="grey-background">
 
-    <div class="postPreviewContainer" *ngFor="let post of model.posts">
-        <ion-card (click)="viewPost(post)">
-                <div class="content image">
-                        <img src="{{post.image_url}}" alt="" style="width: 100%">
-                    </div>
-            <div class="content info">
-                
+    <!--<div class="postPreviewContainer" *ngFor="let post of model.posts">-->
+    <!--<ion-card (click)="viewPost(post)">-->
+    <!--<div class="content image">-->
+    <!--<img src="{{post.image_url}}" alt="" style="width: 100%">-->
+    <!--</div>-->
+    <!--<div class="content info">-->
+    <!---->
 
+    <!--<div class="title">{{post.title}}</div>-->
+    <!--<div class="metadata">{{post.category_title}} | {{post.created | date}}</div>-->
+    <!---->
+    <!--</div>-->
+    <!--</ion-card>-->
+    <!--<br>-->
+    <!--</div>-->
+
+    <div class="blog-item"
+         (click)="viewPost(post)"
+         [style.background]="'url(' + post.image_url + ')'"
+         [style.background-size]="'cover'"
+         *ngFor="let post of model.posts">
+
+        <div class="content-container">
+            <div class="content">
                 <div class="title">{{post.title}}</div>
-                <div class="metadata">{{post.category_title}} | {{post.created | date}}</div>
-                
+                <div class="metadata">
+                    <div>{{post.category_title}}</div>
+                    <div>{{post.created | date}}</div>
+                </div>
             </div>
-        </ion-card>
-        <br>
+        </div>
+
     </div>
 
     <ion-infinite-scroll (ionInfinite)="loadNextPosts($event)" *ngIf="model.nextPage">

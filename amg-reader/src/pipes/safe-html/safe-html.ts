@@ -15,6 +15,9 @@ export class SafeHtmlPipe implements PipeTransform {
 
     transform(html) {
         // Sanitizes the string and returns a valid HTML stirng
+        console.log(html);
+        html = html.split(`src="`).join(`src="//amglaurier.com`).split('style').join('alpha');
+        console.log(html);
         return this.sanitizer.bypassSecurityTrustHtml(html);
     }
 }

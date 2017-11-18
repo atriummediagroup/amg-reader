@@ -5,26 +5,39 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Magazines</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Magazines</ion-title>
+    </ion-navbar>
 </ion-header>
 
 
 <ion-content padding class="grey-background">
 
-    <div class="postPreviewContainer" *ngFor="let issue of model.issues">
-        <ion-card (click)="viewIssue(issue)">
-                <div class="content image">
-                        <img src="{{issue.image_url}}" alt="" style="width: 100%">
-                    </div>
+    <!--<div class="postPreviewContainer" *ngFor="let issue of model.issues">-->
+    <!--<ion-card (click)="viewIssue(issue)">-->
+    <!--<div class="content image">-->
+    <!--<img src="{{issue.image_url}}" alt="" style="width: 100%">-->
+    <!--</div>-->
 
-        </ion-card>
-        <br>
+    <!--</ion-card>-->
+    <!--<br>-->
+    <!--</div>-->
+
+    <div class="magazine-issue"
+         *ngFor="let issue of model.issues"
+         (click)="viewPost(issue)">
+
+        <div class="content-container">
+            <div class="content">
+                <img src="{{issue.image_url}}" alt="" style="width: 100%">
+                <div class="title">{{issue.title}}</div>
+            </div>
+        </div>
     </div>
+
 
     <ion-infinite-scroll (ionInfinite)="loadNextPosts($event)" *ngIf="model.nextPage">
         <ion-infinite-scroll-content loadingSpinner="bubbles"
@@ -34,8 +47,6 @@
     </ion-infinite-scroll>
 
 
-
-  
 </ion-content>
 
 
