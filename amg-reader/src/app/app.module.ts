@@ -24,6 +24,8 @@ import {DocumentViewer} from '@ionic-native/document-viewer';
 import {File} from '@ionic-native/file';
 import {SpinnerDialog} from '@ionic-native/spinner-dialog';
 
+import { SafeHtmlPipe } from './../pipes/safe-html/safe-html';
+
 @NgModule({
     declarations: [
         MyApp,
@@ -35,6 +37,7 @@ import {SpinnerDialog} from '@ionic-native/spinner-dialog';
         MagazineDetailPage,
         PhotoblogDetailPage,
         PhotoblogListPage,
+        SafeHtmlPipe
     ],
     imports: [
         BrowserModule,

@@ -43,6 +43,7 @@ export class MagazineListPage {
 
 
     viewIssue(issue: Issue) {
+        //BUG: both platform.is IOS, causing android magazines to not launch: change one to Android 
         if(this.platform.is('ios')) {
             this.platform.ready().then(() => {
                 cordova.InAppBrowser.open(issue.pdf_url_link, "_blank", "location=false");
