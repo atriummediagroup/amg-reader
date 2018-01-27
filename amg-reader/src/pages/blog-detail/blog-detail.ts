@@ -2,7 +2,6 @@ import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
 import {BlogPost} from '../../providers/http/http';
 import {SocialSharing} from '@ionic-native/social-sharing';
-
 /**
  * Generated class for the BlogDetailPage page.
  *
@@ -24,7 +23,6 @@ export class BlogDetailPage {
     }
 
     ionViewDidLoad() {
-        console.log('ionViewDidLoad BlogDetailPage');
     }
 
     share() {

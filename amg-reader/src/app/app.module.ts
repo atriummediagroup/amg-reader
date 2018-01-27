@@ -4,7 +4,6 @@ import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
 
 import {MyApp} from './app.component';
 import {HomePage} from '../pages/home/home';
-import {ListPage} from '../pages/list/list';
 import {BlogDetailPage} from '../pages/blog-detail/blog-detail';
 import {BlogListPage} from '../pages/blog-list/blog-list';
 import {CategoryListPage} from '../pages/category-list/category-list';
@@ -22,16 +21,13 @@ import {MarkdownModule} from 'angular2-markdown';
 import {SocialSharing} from '@ionic-native/social-sharing';
 import {LocalStorageProvider} from '../providers/local-storage/local-storage';
 import {DocumentViewer} from '@ionic-native/document-viewer';
-import {FileTransfer} from '@ionic-native/file-transfer';
 import {File} from '@ionic-native/file';
-import {MagazineIssueProvider} from '../providers/magazine-issue/magazine-issue';
 import {SpinnerDialog} from '@ionic-native/spinner-dialog';
 
 @NgModule({
     declarations: [
         MyApp,
         HomePage,
-        ListPage,
         BlogDetailPage,
         BlogListPage,
         CategoryListPage,
@@ -44,13 +40,12 @@ import {SpinnerDialog} from '@ionic-native/spinner-dialog';
         BrowserModule,
         IonicModule.forRoot(MyApp),
         MarkdownModule.forRoot(),
-        PipesModule
     ],
     bootstrap: [IonicApp],
     entryComponents: [
         MyApp,
         HomePage,
-        ListPage,
+        // ListPage,
         BlogDetailPage,
         BlogListPage,
         CategoryListPage,
@@ -61,16 +56,14 @@ import {SpinnerDialog} from '@ionic-native/spinner-dialog';
     ],
     providers: [
         HTTP,
+        SocialSharing,
         StatusBar,
         SplashScreen,
         {provide: ErrorHandler, useClass: IonicErrorHandler},
         HttpProvider,
-        SocialSharing,
         LocalStorageProvider,
         DocumentViewer,
-        FileTransfer,
         File,
-        MagazineIssueProvider,
         SpinnerDialog
     ]
 })

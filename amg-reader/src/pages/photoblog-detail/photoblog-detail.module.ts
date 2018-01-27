@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { PhotoblogDetailPage } from './photoblog-detail';
 import {SocialSharing} from '@ionic-native/social-sharing';
+import { PipesModule } from '../../pipes/pipes.module';
 
 @NgModule({
   declarations: [
@@ -9,7 +10,8 @@ import {SocialSharing} from '@ionic-native/social-sharing';
   ],
   imports: [
     IonicPageModule.forChild(PhotoblogDetailPage),
-      SocialSharing
+      // SocialSharing
+    PipesModule
   ],
 })
 export class PhotoblogDetailPageModule {}
