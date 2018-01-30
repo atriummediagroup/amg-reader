@@ -39,7 +39,7 @@ export class HomePage {
 
     ionViewDidLoad() {
         // Get latest post from the server
-        this.http.get(Requests.posts(4, this.searchQuery, null)).then(value => {
+        this.http.get(Requests.posts(3, this.searchQuery, null)).then(value => {
             const data = <PostsResponse>JSON.parse(value.data);
             this.model.blogPosts.first = data.results[0];
             this.model.blogPosts.rest = data.results.slice(1);
@@ -48,7 +48,7 @@ export class HomePage {
             console.log(error);
         });
 
-        this.http.get(Requests.photoPosts(4, this.searchQuery, null)).then(value => {
+        this.http.get(Requests.photoPosts(3, this.searchQuery, null)).then(value => {
             const data = <PhotoPostsResponse>JSON.parse(value.data);
             this.model.photoPosts.first = data.results[0];
             this.model.photoPosts.rest = data.results.slice(1);

@@ -4,8 +4,8 @@ import {HTTP, HTTPResponse} from '@ionic-native/http';
 import {Platform} from 'ionic-angular';
 
 // Uses the web version of HTTP rather than the cordova version (which doesnt work on web)
-const DEVELOPMENT = true;
-// const DEVELOPMENT = false;
+// const DEVELOPMENT = true;
+const DEVELOPMENT = false;
 /*
  Generated class for the HttpProvider provider.
 

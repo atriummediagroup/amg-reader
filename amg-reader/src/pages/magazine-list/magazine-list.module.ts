@@ -5,7 +5,7 @@ import { PipesModule } from '../../pipes/pipes.module';
 
 @NgModule({
   declarations: [
-    MagazineListPage,
+    // MagazineListPage,
   ],
   imports: [
     IonicPageModule.forChild(MagazineListPage),

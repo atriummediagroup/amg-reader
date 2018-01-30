@@ -5,7 +5,7 @@ import {BlogDetailPage} from './blog-detail';
 
 @NgModule({
     declarations: [
-        BlogDetailPage,
+        // BlogDetailPage,
     ],
     imports: [
         IonicPageModule.forChild(BlogDetailPage),

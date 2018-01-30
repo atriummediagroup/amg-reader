@@ -1,5 +1,14 @@
 page-home {
+
+#menu-button { 
+  margin-top:2px;
 }
+
+#logo {
+  margin-top: 2px;
+  height: 27px;
+}
+
 
 .divider-title {
   padding: 15px 10px 5px 13px;
@@ -35,6 +44,7 @@ page-home {
 
 .blog-item {
 
+
   img {
     height: calc(100% + 5px);
     max-width: none;
@@ -57,8 +67,16 @@ page-home {
       color: white;
       font-size: 1.35em;
 
+      .secondary-title {
+        font-size: 0.8em;
+      }
+
       .metadata {
         font-size: 0.85em;
+        color: rgba(255, 255, 255, 0.85);
+      }
+      .secondary-metadata{
+        font-size: 0.65em;
         color: rgba(255, 255, 255, 0.85);
       }
 
@@ -86,8 +104,4 @@ page-home {
 
   }
 }
-
-#logo {
-  margin-top: 2px;
-  height: 27px;
 }

@@ -49,14 +49,12 @@ export class MagazineListPage {
                 cordova.InAppBrowser.open(issue.pdf_url_link, "_blank", "location=false");
             });
         } else {
-            if(this.platform.is('ios')) {
-                this.platform.ready().then(() => {
-                    cordova.InAppBrowser.open(issue.pdf_url_link, "_system", "location=false");
-                });
+            this.platform.ready().then(() => {
+                cordova.InAppBrowser.open(issue.pdf_url_link, "_system", "location=false");
+            });
         }
         
     }
-}
 
 
     /* Load the next 'x' blog posts */

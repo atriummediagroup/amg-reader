@@ -23,8 +23,7 @@ import {LocalStorageProvider} from '../providers/local-storage/local-storage';
 import {DocumentViewer} from '@ionic-native/document-viewer';
 import {File} from '@ionic-native/file';
 import {SpinnerDialog} from '@ionic-native/spinner-dialog';
-
-import { SafeHtmlPipe } from './../pipes/safe-html/safe-html';
+import { SafeHtmlPipe } from '../pipes/safe-html/safe-html';
 
 @NgModule({
     declarations: [

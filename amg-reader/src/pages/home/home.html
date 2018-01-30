@@ -1,7 +1,7 @@
 <ion-header>
     <ion-navbar>
         <button ion-button menuToggle>
-            <ion-icon name="menu"></ion-icon>
+            <ion-icon id="menu-button" name="menu"></ion-icon>
         </button>
         <ion-title>
             <img id="logo" height="40" src="assets/imgs/amglogo.png"/>
@@ -25,7 +25,7 @@
                 <div class="metadata">
                     <br>
                     <div>Written by {{model.blogPosts.first.author_name || "Anonymous"}}</div>
-                    <span style="">{{model.blogPosts.first.category_title}} | {{model.blogPosts.first.created | date}}</span>
+                    <span>{{model.blogPosts.first.category_title}} | {{model.blogPosts.first.created | date}}</span>
                 </div>
             </div>
         </div>
@@ -40,8 +40,9 @@
 
         <div class="content-container">
             <div class="content">
-                <div class="title">{{post.title}}</div>
-                <div class="metadata">
+                <div class="secondary-title">{{post.title}}</div>
+                <br>
+                <div class="secondary-metadata">
                     <div>{{post.category_title}}</div>
                     <div>{{post.created | date}}</div>
                 </div>
@@ -88,7 +89,7 @@
 
     <div class="magazine-issue"
          *ngIf="model.issues.first"
-         (click)="viewPost(model.issues.first)">
+         (click)="viewIssue(model.issues.first)">
 
         <div class="content-container">
             <div class="content">
